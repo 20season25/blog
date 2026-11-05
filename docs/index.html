@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>认知增量 · 认知增量</title>
+<meta name="description" content="AI 行业的深度解读与认知更新：钱、墙、人与安全。与微信公众号同步更新。">
+<link rel="canonical" href="https://20season25.github.io/blog">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23111'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle' fill='%23fff' font-family='serif'%3E%E7%9F%A5%3C/text%3E%3C/svg%3E">
+<link rel="alternate" type="application/rss+xml" title="认知增量" href="rss.xml">
+<style>:root{--bg:#faf9f6;--ink:#1a1a18;--sub:#6b6a66;--line:#e4e1da;--card:#ffffff;
+--accent:#b32d2d;--accent-ink:#8f1f1f;--kicker:#8f1f1f;--code-bg:#f0eee8;--quote-bg:#f4f2ec}
+@media (prefers-color-scheme:dark){:root{--bg:#141412;--ink:#e8e6e1;--sub:#9a988f;
+--line:#2c2b27;--card:#1c1c19;--accent:#e05a4e;--accent-ink:#e8837a;--kicker:#e8837a;
+--code-bg:#23231f;--quote-bg:#1f1e1a}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.95 "Source Han Serif SC","Noto Serif SC","Songti SC",STSong,SimSun,Georgia,serif}
+a{color:inherit}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1.25rem}
+header.site{border-bottom:1px solid var(--line);background:var(--card)}
+.site-in{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;
+gap:.4rem;padding:1.4rem 1.25rem 1.1rem}
+.brand{font-size:1.45rem;font-weight:700;letter-spacing:.06em;text-decoration:none}
+.brand .dot{color:var(--accent)}
+.tagline{color:var(--sub);font-size:.9rem;letter-spacing:.05em}
+nav.top{font-family:system-ui,sans-serif;font-size:.88rem}
+nav.top a{color:var(--sub);text-decoration:none;margin-left:1.1rem}
+nav.top a:hover{color:var(--accent)}
+.about{margin:1.6rem 0 0;padding:1.15rem 1.3rem;background:var(--card);
+border:1px solid var(--line);border-radius:10px;font-size:.95rem}
+.about b{letter-spacing:.03em}
+.about .cols{color:var(--sub);margin-top:.45rem}
+.about .cols span{margin-right:1.1em;white-space:nowrap}
+.about .cols i{font-style:normal;color:var(--accent);font-family:system-ui,sans-serif;
+font-size:.78rem;border:1px solid var(--line);border-radius:4px;padding:.05em .45em;margin-right:.35em}
+.list{margin:1.4rem 0 3rem}
+a.card{display:block;text-decoration:none;padding:1.35rem .2rem 1.45rem;
+border-bottom:1px solid var(--line)}
+a.card:hover h2{color:var(--accent-ink)}
+.meta{font-family:system-ui,sans-serif;font-size:.8rem;color:var(--sub);
+display:flex;align-items:center;gap:.7em;margin-bottom:.45rem;letter-spacing:.04em}
+.badge{color:var(--kicker);border:1px solid var(--line);border-radius:4px;
+padding:.05em .5em;background:var(--quote-bg);white-space:nowrap}
+a.card h2{margin:.1rem 0 .4rem;font-size:1.32rem;line-height:1.5;transition:color .15s}
+.sum{color:var(--sub);font-size:.95rem;margin:0}
+.more{font-family:system-ui,sans-serif;font-size:.82rem;color:var(--accent);
+margin-top:.55rem;letter-spacing:.08em}
+footer.site{border-top:1px solid var(--line);color:var(--sub);
+font-family:system-ui,sans-serif;font-size:.8rem;line-height:1.9;padding:1.3rem 0 2.4rem}
+footer.site a{color:var(--sub)}
+article{padding:2.2rem 0 1rem}
+.kicker{font-family:system-ui,sans-serif;font-size:.8rem;letter-spacing:.12em;
+color:var(--kicker);margin-bottom:.6rem}
+h1.title{font-size:1.78rem;line-height:1.55;margin:0 0 .7rem;font-weight:700}
+p.lede{font-size:1.06rem;color:var(--sub)}
+.byline{font-family:system-ui,sans-serif;font-size:.82rem;color:var(--sub);
+padding:.75rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+margin-bottom:1.9rem;letter-spacing:.04em}
+.body h2{font-size:1.3rem;line-height:1.5;margin:2.5em 0 1em;padding-left:.6em;
+border-left:4px solid var(--accent)}
+.body h3{font-size:1.1rem;margin:2em 0 .8em}
+.body p{margin:0 0 1.35em;text-align:justify}
+.body ul,.body ol{margin:0 0 1.35em;padding-left:1.6em}
+.body li{margin-bottom:.5em}
+.body blockquote{margin:1.6em 0;padding:.9em 1.2em;background:var(--quote-bg);
+border-left:4px solid var(--accent);border-radius:0 8px 8px 0;color:var(--sub)}
+.body blockquote p{margin:0}
+.body hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+.body code{font-family:ui-monospace,Consolas,monospace;font-size:.85em;
+background:var(--code-bg);padding:.15em .45em;border-radius:4px}
+.body strong{font-weight:700}
+p.colophon{color:var(--sub);font-size:.86rem;font-family:system-ui,sans-serif;
+line-height:1.8;border-top:1px dashed var(--line);padding-top:1.1em;margin-top:2.2em}
+.series-nav{display:flex;gap:.8rem;margin:2.6rem 0 0;font-family:system-ui,sans-serif}
+.series-nav a{flex:1;text-decoration:none;border:1px solid var(--line);border-radius:10px;
+padding:.8rem 1rem;background:var(--card);font-size:.86rem}
+.series-nav a:hover{border-color:var(--accent)}
+.series-nav .dir{color:var(--sub);font-size:.75rem;display:block;margin-bottom:.25rem}
+.series-nav .next{text-align:right}
+.backline{margin:2.4rem 0 3.5rem;font-family:system-ui,sans-serif;font-size:.85rem}
+.backline a{color:var(--sub);text-decoration:none}
+.backline a:hover{color:var(--accent)}
+@media (max-width:640px){h1.title{font-size:1.45rem}a.card h2{font-size:1.18rem}}</style>
+</head>
+<body>
+<header class="site"><div class="site-in wrap" style="padding-left:0;padding-right:0">
+<a class="brand" href="index.html">认知增量<span class="dot">.</span></a>
+<span class="tagline">不复述新闻，只更新认知。</span>
+<nav class="top"><a href="index.html#about">关于</a><a href="rss.xml">RSS</a></nav>
+</div></header><main class="wrap"><section class="about" id="about">
+<b>认知增量</b> — AI 行业的深度解读与认知更新：钱、墙、人与安全。与微信公众号同步更新。<br>
+这里只做一件事：把每周 AI 圈的噪音，蒸馏成值得留下的判断。
+<div class="cols"><span><i>深度</i>带观点的深度解读</span><span><i>速写</i>安全事件复盘</span><span><i>周报</i>每周五 · 六个认知</span></div>
+</section><section class="list"><a class="card" href="posts/nvidia-as-guarantor.html">
+<div class="meta"><span class="badge">算力金融 · 3</span><span>2026-11-09</span><span>约 5 分钟</span></div>
+<h2>英伟达开始干银行的活：AI万亿承诺背后的担保人</h2>
+<p class="sum">卖芯片的公司开始替买芯片的人按手印借钱——担保、信用循环，和朗讯、北电的历史回声。</p>
+<div class="more">阅读全文 →</div>
+</a><a class="card" href="posts/ai-weekly-001.html">
+<div class="meta"><span class="badge">AI周报 · 1</span><span>2026-11-06</span><span>约 4 分钟</span></div>
+<h2>AI周报 #1：这周，AI圈聊的全是&quot;钱&quot;和&quot;墙&quot;</h2>
+<p class="sum">创刊号：亏损是幻觉承诺是真债、3万亿集体承诺、5000亿蒸发、内容结算与自保清单——这周该更新的六个认知。</p>
+<div class="more">阅读全文 →</div>
+</a><a class="card" href="posts/ai-search-answer-leaves-link-dies.html">
+<div class="meta"><span class="badge">深度解读</span><span>2026-11-05</span><span>约 4 分钟</span></div>
+<h2>一天蒸发5000亿：当AI搜索决定&quot;答案留下，链接消失&quot;</h2>
+<p class="sum">谷歌史上最惨一天、Reddit每周流失百万访问开始砌墙——&quot;内容免费、广告买单&quot;的旧契约，正在被AI搜索重新议价。</p>
+<div class="more">阅读全文 →</div>
+</a><a class="card" href="posts/black-october-ai-keys.html">
+<div class="meta"><span class="badge">安全速写 · 1</span><span>2026-11-04</span><span>约 4 分钟</span></div>
+<h2>黑色十月：小偷不偷数据了，改偷AI钥匙</h2>
+<p class="sum">九个平台连环失窃、假官方扩展上架11小时、模型48小时自主攻破6个浏览器版本——附普通人的五条自保清单。</p>
+<div class="more">阅读全文 →</div>
+</a><a class="card" href="posts/qwen-on-iphone.html">
+<div class="meta"><span class="badge">深度解读</span><span>2026-11-03</span><span>约 6 分钟</span></div>
+<h2>千问上了iPhone：等了两年的Apple智能进中国，赢家为什么是它</h2>
+<p class="sum">复盘两年谈判桌：传闻主角从百度换成阿里，模型座次翻了几轮，iPhone上那个位置从没换过人。模型决定入场券，渠道决定胜负。</p>
+<div class="more">阅读全文 →</div>
+</a><a class="card" href="posts/anthropic-9000b-real-debt.html">
+<div class="meta"><span class="badge">算力金融 · 2</span><span>2026-11-02</span><span>约 6 分钟</span></div>
+<h2>Anthropic招股书再读：807亿亏损是幻觉，9000亿承诺才是真债</h2>
+<p class="sum">真正吓人的数字写在报表之外：近9000亿美元算力承诺，付款期排到2045年，而还款来源写的是&quot;AI自己变强&quot;。</p>
+<div class="more">阅读全文 →</div>
+</a><a class="card" href="posts/anthropic-ipo-807b.html">
+<div class="meta"><span class="badge">算力金融 · 1</span><span>2026-10-29</span><span>约 5 分钟</span></div>
+<h2>Anthropic要上市了：看清807亿美元&quot;亏损&quot;的真相，再谈2万亿估值</h2>
+<p class="sum">一家&quot;净亏807亿&quot;的公司，凭什么谈2万亿估值——看懂招股书里的会计幻觉，和1500家大客户背后的早期市场。</p>
+<div class="more">阅读全文 →</div>
+</a></section></main><footer class="site"><div class="wrap">
+© 2026 Season · 认知增量 · 与微信公众号同步更新<br>
+全部内容为个人观点，不构成投资建议 · <a href="rss.xml">RSS 订阅</a>
+</div></footer>
+</body>
+</html>

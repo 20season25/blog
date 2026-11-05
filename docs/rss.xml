@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+<title>认知增量</title>
+<link>https://20season25.github.io/blog</link>
+<description>AI 行业的深度解读与认知更新：钱、墙、人与安全。与微信公众号同步更新。</description>
+<language>zh-CN</language>
+<lastBuildDate>Thu, 05 Nov 2026 16:09:16 +0000</lastBuildDate>
+<item>
+<title>英伟达开始干银行的活：AI万亿承诺背后的担保人</title>
+<link>https://20season25.github.io/blog/posts/nvidia-as-guarantor.html</link>
+<guid isPermaLink="true">https://20season25.github.io/blog/posts/nvidia-as-guarantor.html</guid>
+<pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+<description>卖芯片的公司开始替买芯片的人按手印借钱——担保、信用循环，和朗讯、北电的历史回声。</description>
+<content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;这是&quot;算力金融&quot;系列的第三篇。第一篇讲Anthropic招股书：亏损是会计幻觉。第二篇还是它：9000亿算力承诺才是真债，付款期排到2045年。这一篇回答一个更往下钻的问题：&lt;strong&gt;这些债，谁在替它背书？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;10月30日，The Information首报、路透社和TechCrunch跟进的一条消息给出了答案的一部分：英伟达正在洽谈，充当AI云厂商Nscale一笔巨额债务融资的信用担保人。用大白话说：&lt;strong&gt;卖芯片的公司，开始替买芯片的人按手印借钱了。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;一、这笔交易长什么样&lt;/h2&gt;
+&lt;p&gt;先交代事实（注意：目前只是洽谈，没有签约）：&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;AI云厂商Nscale与美国Anthropic签有一份约450亿美元的算力供应合同——也就是Anthropic那8500亿承诺版图里的一块；&lt;/li&gt;&lt;li&gt;为了履约，Nscale要在西弗吉尼亚州建一座460兆瓦的数据中心（460兆瓦什么概念：大约相当于一座中型火电机组的出力，专门喂给GPU）；&lt;/li&gt;&lt;li&gt;建这个中心需要数十亿美元的债务融资，银行愿意放贷的前提，是英伟达出面做信用担保；&lt;/li&gt;&lt;li&gt;据报道，黄仁勋对项目进度的表态是一句相当直白的话：让Nscale&quot;少睡点觉&quot;。另外合同里有一条很紧的条款——Anthropic可以在融资逾期时直接走人。&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;把这条新闻翻译成一句话：&lt;strong&gt;一座数据中心能不能立起来，最后取决于芯片公司愿不愿意把自己的资产负债表押上去。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;二、卖铲子的，为什么要替挖金子的担保&lt;/h2&gt;
+&lt;p&gt;这违反直觉。英伟达是这片淘金热里卖铲子的，旱涝保收，为什么要跳进金矿的债务里？&lt;/p&gt;
+&lt;p&gt;逻辑其实很清楚：&lt;strong&gt;担保就是需求保险。&lt;/strong&gt;银行不敢借钱给Nscale，数据中心就建不起来，建不起来450亿美元的算力合同就落不了地，落不了地英伟达的GPU就少卖一大批。英伟达出信用，银行敢放款，数据中心立起来，GPU卖出去。它担保的不是别人的项目，是自己的收入曲线。&lt;/p&gt;
+&lt;p&gt;这不是英伟达第一次干这种事——此前它已多次以投资、订单互绑的方式深度介入大客户的融资安排（公开报道过的对OpenAI等客户的重注合作就是这一模式）。到&quot;担保人&quot;这一步，不过是介入得更深：从出钱，到出信用。&lt;/p&gt;
+&lt;p&gt;历史上这有先例，而且结局值得记住。上世纪90年代末，电信设备巨头朗讯、北电网络为了催动销量，大量给运营商提供&quot;供应商融资&quot;——你自己没钱买我的设备？我借钱给你买。泡沫期这招让报表漂亮极了；2001年泡沫破裂，运营商成片倒下，设备商的应收账款和融资敞口变成坏账黑洞，北电从此一蹶不振。&lt;strong&gt;当卖方把&quot;卖货&quot;和&quot;放贷&quot;绑在一起，卖方的报表里就藏了一个它自己都没法独立看清的风险敞口。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;三、信用循环：热钱里有多少是&quot;自己人&quot;&lt;/h2&gt;
+&lt;p&gt;把三部曲的三块拼图拼起来，会看到一幅完整的图：&lt;/p&gt;
+&lt;ol&gt;&lt;li&gt;Anthropic签下8500亿到1万亿的算力承诺（第二篇）；&lt;/li&gt;&lt;li&gt;承诺要兑现，钱从哪来？上半年收入163亿，缺口靠融资，融资靠信用；&lt;/li&gt;&lt;li&gt;信用靠谁？银行要担保，于是英伟达出场（本篇）；&lt;/li&gt;&lt;li&gt;融来的钱建数据中心，买谁的东西？主要还是英伟达的芯片。&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;发现了吗：&lt;strong&gt;这笔钱的循环里，英伟达既是供应商，又是信用背书人，还是（通过投资）潜在受益方。&lt;/strong&gt;外部投资人看到的&quot;AI需求爆棚&quot;，其中有多少是终端市场的真实收入，有多少是产业链内部信用放大出来的采购力——这个比例，没有任何一张报表直接回答你。&lt;/p&gt;
+&lt;p&gt;我说清楚一点：这不是指控造假，所有环节都合法、都有商业逻辑，甚至可以说理性。但&lt;strong&gt;经济学上这叫信用循环放大（credit amplification）：每一环都在为下一环增信，系统总杠杆螺旋上升，而它的稳定性完全押在&quot;AI收入最终会兑现&quot;这一个假设上。&lt;/strong&gt;这个假设如果成立，英伟达是史上最精明的布局者；如果落空，违约会沿着&quot;云厂商→担保→英伟达资产负债表&quot;的路径原路传回。&lt;/p&gt;
+&lt;p&gt;同一个结构，两个结局，区别只在增长兑现与否——这正是第二篇PitchBook那句话的分量：&quot;增长对这家公司不是可选项。&quot;&lt;/p&gt;
+&lt;h2&gt;四、普通观察者的四条检查线&lt;/h2&gt;
+&lt;p&gt;不用内幕消息，盯这四个公开信号就够了：&lt;/p&gt;
+&lt;ol&gt;&lt;li&gt;&lt;strong&gt;英伟达财报里的担保与承诺披露。&lt;/strong&gt;以后每季财报，重点看有没有&quot;担保敞口&quot;&quot;承诺与或有负债&quot;这类字眼和金额——一旦开始披露大额担保，说明模式已从&quot;洽谈&quot;变成&quot;常态&quot;。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Nscale这笔融资落不落地。&lt;/strong&gt;未来一两个季度见分晓：落地，意味着&quot;芯片厂当担保人&quot;模式跑通，会有第二批模仿者；谈崩，说明银行对这个结构也没信心。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Anthropic的现金消耗速度。&lt;/strong&gt;它账上有千亿现金，但按第二篇的测算每年要付900亿承诺款——现金消耗斜率是最诚实的指标。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&quot;供应商融资&quot;这个词出现的频率。&lt;/strong&gt;媒体和财报里它出现得越频繁，离北电剧本就越近。&lt;/li&gt;&lt;/ol&gt;
+&lt;h2&gt;五、写在最后&lt;/h2&gt;
+&lt;p&gt;三部曲到这里可以说完整了：&lt;strong&gt;利润是会计观点，现金是硬事实，承诺是命运——而信用，是让这三样还能继续转下去的最后一环。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;当卖铲子的开始替挖金子的人按手印借钱，历史告诉我们这通常意味着两件事同时成立：淘金热是真实的热，泡沫的味道也已经在空气里了。分清这两件事的唯一办法，是盯住&quot;收入兑现&quot;这条线——这也是本系列从招股书附注一路挖到担保协议的原因。&lt;/p&gt;
+&lt;p&gt;下一个观察节点：英伟达下一季财报，看它的资产负债表愿不愿意坦白。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p class=&quot;colophon&quot;&gt;说明：文中信息来自The Information首报、路透社与TechCrunch跟进的报道（2026年10月30日）及Anthropic公开的S-1文件，历史案例（朗讯、北电供应商融资）为公开史实。分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
+</item><item>
+<title>AI周报 #1：这周，AI圈聊的全是&quot;钱&quot;和&quot;墙&quot;</title>
+<link>https://20season25.github.io/blog/posts/ai-weekly-001.html</link>
+<guid isPermaLink="true">https://20season25.github.io/blog/posts/ai-weekly-001.html</guid>
+<pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate>
+<description>创刊号：亏损是幻觉承诺是真债、3万亿集体承诺、5000亿蒸发、内容结算与自保清单——这周该更新的六个认知。</description>
+<content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;blockquote&gt;&lt;p&gt;栏目说明：每周五更新。不复述新闻，只回答一个问题——这周发生的事，该更新你脑子里的哪个认知。（试刊第1期，覆盖10月26日-11月1日）&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p class=&quot;lede&quot;&gt;如果说前几周的AI新闻关键词是&quot;模型&quot;和&quot;产品&quot;，这一周的关键词很清楚：&lt;strong&gt;钱&lt;/strong&gt;（谁在花、花多少、什么时候赚回来）和&lt;strong&gt;墙&lt;/strong&gt;（谁在关门、谁被关在门外）。本周该更新的六个认知，按重要程度排序。&lt;/p&gt;
+&lt;h2&gt;1. 亏损是会计幻觉，承诺才是真债&lt;/h2&gt;
+&lt;p&gt;Anthropic招股书披露近9000亿美元表外承诺，付款期排到2045年。上半年&quot;净亏807亿&quot;主要是可转换票据的会计重估，剔掉后调整后利润为正。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;认知更新：看AI公司，利润表讲过去，资产负债表讲现在，附注里的承诺讲未来。最后一页附注才是命门。&lt;/strong&gt;（详细拆解见本号《Anthropic要上市了》《招股书再读》两篇）&lt;/p&gt;
+&lt;h2&gt;2. 五巨头的3万亿：单独看都理性，加起来停不下来&lt;/h2&gt;
+&lt;p&gt;Alphabet、Meta、微软、亚马逊、甲骨文承诺投入超3万亿美元建AI基建。谷歌一家超1万亿（一年前的八倍），Meta近半是长达30年的租约，甲骨文自由现金流已经转负。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;认知更新：这不是五场独立的豪赌，是一个谁都没法先踩刹车的博弈结构。&lt;/strong&gt;单看每家都&quot;没问题&quot;，加在一起可能是问题。&lt;/p&gt;
+&lt;h2&gt;3. 谷歌史上最惨一天：AI还没赚到钱，账先来了&lt;/h2&gt;
+&lt;p&gt;Alphabet单日跌12.6%、蒸发约5000亿美元市值。广告高管承认AI Mode变现效率不如传统搜索。今年资本开支最高2050亿，自由现金流负90亿。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;认知更新：整个行业卡在&quot;支出已All in、收入还没接上&quot;的窄桥上。&lt;/strong&gt;桥走不走得通，未来四个季度见分晓。&lt;/p&gt;
+&lt;h2&gt;4. Reddit砌墙：内容被消费，但主人没被结算&lt;/h2&gt;
+&lt;p&gt;Reddit CEO说&quot;AI Mode不给任何人带来流量&quot;，谷歌引荐流量每周掉超100万次访问，Reddit宣布逐步要求登录。逻辑链：AI把答案留在自己页面→网站流量枯竭→网站筑墙→AI只能付费买内容→最付得起的还是巨头。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;认知更新：对创作者，私域和&quot;不可被摘要替代的价值&quot;（观点、判断、信任）升值，纯信息搬运快速贬值。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;5. 千问上iPhone：模型决定入场，渠道决定胜负&lt;/h2&gt;
+&lt;p&gt;Apple智能11月4日在中国开Beta，12月正式推送，千问集成进Siri、写作工具和视觉智能。复盘两年谈判桌：传闻主角从百度换成阿里，模型座次翻了几轮，iPhone那个位置没换过人。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;认知更新：AI下半场比的可能不是谁更聪明，而是谁坐在用户顺手的地方。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;6. 黑色十月：小偷不偷数据，改偷AI钥匙&lt;/h2&gt;
+&lt;p&gt;10月九个AI开发者平台连环出事，攻击者专偷环境变量里的API密钥拿去刷模型额度；Cursor市场被塞假官方扩展，5000人中招；实验里开源模型48小时自主攻破6个Firefox版本，单次成本约1000美元。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;认知更新：AI时代值钱的东西换了，攻击面也跟着换了——钥匙和管道比保险箱好偷。&lt;/strong&gt;（附五条自保清单，见本号《黑色十月》）&lt;/p&gt;
+&lt;h2&gt;本周快讯一览&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;OpenAI宣布12月起将ChatGPT与Codex合并为统一Token额度（对重度用户的实质性降价，值得单独观察）&lt;/li&gt;&lt;li&gt;英伟达被曝洽谈为西弗吉尼亚州Anthropic数据中心提供债务担保——芯片厂开始干银行的活，这条线索下周单独展开&lt;/li&gt;&lt;li&gt;白宫科技顾问萨克斯称Anthropic&quot;可能成为资本主义史上最伟大企业&quot;——一个观点，留档待验证&lt;/li&gt;&lt;li&gt;Sierra宣布ARR突破4亿美元；Figma发布Weave创作平台；Gemini的Computer Use工具正式GA&lt;/li&gt;&lt;li&gt;微软向约6万名员工发自愿离职邀约（与AI资本开支同框出现，讽刺感拉满）&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;下周看点&lt;/h2&gt;
+&lt;p&gt;11月4日（周三）：Apple智能中国区Beta开放——第一批真实用户体验反馈会出来，千问集成的实际表现值得关注。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;*本栏目信息源包括各公司官方公告及彭博社、The Verge、Platformer、Wiz、Epoch AI等公开报道。认知更新为个人观点，不构成投资建议。*&lt;/p&gt;</content:encoded>
+</item><item>
+<title>一天蒸发5000亿：当AI搜索决定&quot;答案留下，链接消失&quot;</title>
+<link>https://20season25.github.io/blog/posts/ai-search-answer-leaves-link-dies.html</link>
+<guid isPermaLink="true">https://20season25.github.io/blog/posts/ai-search-answer-leaves-link-dies.html</guid>
+<pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
+<description>谷歌史上最惨一天、Reddit每周流失百万访问开始砌墙——&quot;内容免费、广告买单&quot;的旧契约，正在被AI搜索重新议价。</description>
+<content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;10月29日，两只股票同日大跌：Alphabet跌了12.6%——上市以来最惨的一天，市值蒸发约5000亿美元；Reddit跌了15%。表面看是财报季例行波动，实际上这两根大阴线讲的是同一个故事：&lt;strong&gt;AI搜索正在重写互联网的流量分配规则，而重写的代价，正开始由整个开放网络一起承担。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;一、先看清楚那天发生了什么&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;谷歌这边&lt;/strong&gt;，三季度搜索及相关广告收入633.5亿美元，同比增长12%——看着不错？但一季度增速是19%，二季度17%，一路减速。财报电话会上，谷歌广告业务高管Philipp Schindler说了一句投资者等了一年的实话：&lt;strong&gt;AI Mode的变现效率不如传统搜索。&lt;/strong&gt;一年前谷歌还宣称AI摘要的广告变现&quot;和传统搜索差不多&quot;，现在这个说法维持不住了。再加上今年最高205亿美元的资本开支和负90亿美元的自由现金流，市场用脚投了票。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reddit这边&lt;/strong&gt;，CEO Huffman在电话会上说得更直白：&quot;AI Mode不给任何人带来流量。不包括我们，据我所知也不包括任何人。这就是谷歌搜索工作方式的根本性改变。&quot;他给的数字是：10月里，Reddit来自谷歌搜索的引荐流量&lt;strong&gt;每周下降超过100万次访问&lt;/strong&gt;。美国日活从二季度的5320万降到5070万，连续第二个季度下滑，公司预计四季度可能还要跌两位数百分比。&lt;/p&gt;
+&lt;p&gt;Reddit的应对是：逐步要求用户登录才能看内容。Huffman强调这不是针对谷歌，还说自己出于对开放互联网的信念，个人抵制这个方案很久了。&lt;/p&gt;
+&lt;h2&gt;二、谷歌的悖论：杀死开放网络的人，可能最后把它买下来&lt;/h2&gt;
+&lt;p&gt;Platformer主笔Casey Newton把这事的深层结构写得很透，我把它叫作&quot;围墙循环&quot;：&lt;/p&gt;
+&lt;ol&gt;&lt;li&gt;谷歌的AI把答案直接放在搜索结果页，用户不再点出去，&lt;strong&gt;价值留在了谷歌自己的页面里&lt;/strong&gt;；&lt;/li&gt;&lt;li&gt;网站流量枯竭，于是开始筑墙：要么付费墙，要么登录墙，要么起诉——Reddit2025年就起诉了Anthropic和Perplexity，还在续约谈判里讨论过直接切断谷歌的AI访问（谷歌目前每年付约6000万美元购买Reddit数据）；&lt;/li&gt;&lt;li&gt;AI抓不到免费内容，只能越来越多地靠&lt;strong&gt;付费授权&lt;/strong&gt;养活自己；&lt;/li&gt;&lt;li&gt;而全世界最付得起授权费的公司是谁？还是谷歌。&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;于是出现一个反直觉的推论：&lt;strong&gt;开放网络的死亡，可能不是谷歌的危机，反而是它的护城河。&lt;/strong&gt;网页越围墙化，养内容这件事就越贵，而越贵的游戏，越只有巨头玩得起。Newton那句话值得原文引用：&quot;Google会没事的。我担心的是我们其余所有人。&quot;&lt;/p&gt;
+&lt;p&gt;顺带一个耐人寻味的细节：今年7月，皮查伊还说AI功能&quot;每周向网站送去几十亿次点击&quot;；这个季度的电话会，这个数字一次都没被提起。&lt;/p&gt;
+&lt;h2&gt;三、为什么所有做内容的人都该盯着这场对撞&lt;/h2&gt;
+&lt;p&gt;你可能在想：这是谷歌和Reddit的事，跟我有什么关系？&lt;/p&gt;
+&lt;p&gt;关系在于这条逻辑是通用的：&lt;strong&gt;当&quot;答案&quot;比&quot;链接&quot;更值钱，生产内容的人议价权就会下降。&lt;/strong&gt;用户问一句，AI直接答，答案的署名、来源、广告位，全都不归原作者。Reddit每周丢的100万次访问，本质上是&quot;内容被消费了，但内容的主人没被结算&quot;。&lt;/p&gt;
+&lt;p&gt;各国生态细节不同（中国是百度、微信搜一搜、豆包们的战场），但经济学是同一套。对创作者来说，这件事指出了两个越来越值钱的东西：一是&lt;strong&gt;私域&lt;/strong&gt;——能直接触达读者的渠道（公众号、星球、邮件列表），不依赖搜索引擎脸色；二是&lt;strong&gt;不可被摘要替代的价值&lt;/strong&gt;——观点、判断、人格化的信任，这些是AI摘要给不了的。纯信息搬运，则是在这个时代里最快速贬值的资产。&lt;/p&gt;
+&lt;h2&gt;四、写在最后&lt;/h2&gt;
+&lt;p&gt;把这一天和这周的其他新闻连起来看会更有意思：Anthropic为算力签下近万亿承诺，五巨头为基建押上3万亿，而谷歌因为&quot;AI还没赚到钱&quot;单日蒸发5000亿。&lt;strong&gt;整个行业正处在&quot;支出已经All in、收入还没接上&quot;的窄桥上。&lt;/strong&gt;桥那头如果通向的是&quot;答案经济&quot;，那么开放网络这个运行了三十年的免费内容系统，就要被重新议价一遍——第一个掀桌子的动作，你已经在这周看到了：Reddit关上了登录门。&lt;/p&gt;
+&lt;p&gt;三十年互联网的默认设定是&quot;内容免费、广告买单&quot;。当答案直接出现在搜索框里，买单的中介被抽走了，&lt;strong&gt;&quot;免费&quot;还能维持多久，是未来十年互联网最大的悬而未决。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p class=&quot;colophon&quot;&gt;说明：文中信息来自Alphabet与Reddit三季度财报电话会公开内容，以及Platformer、The Decoder等媒体报道（2026年10月28日-30日），分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
+</item><item>
+<title>黑色十月：小偷不偷数据了，改偷AI钥匙</title>
+<link>https://20season25.github.io/blog/posts/black-october-ai-keys.html</link>
+<guid isPermaLink="true">https://20season25.github.io/blog/posts/black-october-ai-keys.html</guid>
+<pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
+<description>九个平台连环失窃、假官方扩展上架11小时、模型48小时自主攻破6个浏览器版本——附普通人的五条自保清单。</description>
+<content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;复盘2026年10月的AI圈安全事件，会发现一个明确的转向：攻击者最爱的目标变了。以前偷数据、偷密码，现在偷API密钥、偷模型用量、偷更新管道。三件事连起来看，普通用户也该更新一次认知了。&lt;/p&gt;
+&lt;h2&gt;一、九个平台接连沦陷，偷的全是&quot;AI钥匙&quot;&lt;/h2&gt;
+&lt;p&gt;安全公司Wiz在10月30日发了篇报告，标题直接叫&quot;黑色十月&quot;：10月里，Fireworks AI、Zeabur、Lightning AI、OpenCode、Railway、Warp、Northflank等&lt;strong&gt;九个AI开发者平台先后披露安全事件&lt;/strong&gt;——平均每三四天一个。其中Zeabur甚至因此决定关掉公司。&lt;/p&gt;
+&lt;p&gt;这些攻击大多不是什么高级的提示词注入，而是最朴素的套路：&lt;strong&gt;偷环境变量里存着的密钥&lt;/strong&gt;。偷完干什么？拿去刷别人的模型额度，业内叫&quot;LLMJacking&quot;。报告里两个案例：一个30小时内刷了约80万次Bedrock调用，约90%成功；另一个13小时170万次调用。按牌价算，两个案例的账单加起来超过10万美元。Railway的用户则被偷走了约37.1万美元的加密货币。&lt;/p&gt;
+&lt;p&gt;更有意思的是销赃渠道已经产业化：两个转售 hubs——一个叫&quot;momo&quot;（挂靠llm-routing.com，收USDT），一个叫&quot;星价比&quot;（甚至内置了&quot;蒸馏检测监控&quot;来筛风险用户）。部分被盗key的用途不是刷额度，而是&lt;strong&gt;&quot;蒸馏&quot;——偷模型输出去训练竞品模型&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2&gt;二、你什么都没做错，你的工具替你中招&lt;/h2&gt;
+&lt;p&gt;10月29日，Cursor的扩展市场里，Anthropic官方Claude Code扩展的一个被篡改版本（2.1.313）上架了11个小时（美东5:27到16:35），最多约5000名用户装上。它做了三件事：往机器里塞SSH密钥（留后门）、装持久化机制、把主机信息发给攻击者。Anthropic、微软、Open VSX都没被入侵——问题只出在Cursor市场这一个环节。次日干净版本2.1.314顶上。&lt;/p&gt;
+&lt;p&gt;认知点在&quot;自动更新&quot;四个字：扩展市场、包管理器、CI脚本——这些你从不多看一眼的管道，如今是攻击者眼里的正门。&lt;/p&gt;
+&lt;h2&gt;三、AI自己成了小偷：1000美元，48小时，一条完整攻击链&lt;/h2&gt;
+&lt;p&gt;第三件事最科幻。Epoch AI做了个实验：让开源模型GLM 5.3自主攻击Firefox，全程零人工干预。结果它在48小时内，对全部6个测试的Firefox版本都搭出了完整攻击链——访问一个恶意页面就能拿到文件访问权限，单次成本约1000美元。它甚至反复&quot;重新发现&quot;了一个当时尚未公开的漏洞。&lt;/p&gt;
+&lt;p&gt;利用的是&quot;补丁窗口期&quot;（patch gap）：安全补丁发布和用户装上补丁之间的时间差。以前这个窗口以周计，现在一台服务器上的开源模型看一眼补丁公告，几小时内就能武器化。Mozilla随后在Firefox 159里修了相关漏洞。&lt;/p&gt;
+&lt;h2&gt;四、普通人的五条自保清单&lt;/h2&gt;
+&lt;ol&gt;&lt;li&gt;&lt;strong&gt;把API key当银行卡密码管。&lt;/strong&gt;不进代码仓库、不进共享文档，定期轮换，每个服务单独一把key，能设额度上限就设。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;盯用量警报，不只盯账单。&lt;/strong&gt;LLMJacking的特征是短时间海量调用，多数平台可以设异常用量提醒，花两分钟打开。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;装过Cursor的人查一件事。&lt;/strong&gt;如果10月29日那天装/更新过Claude Code 2.1.313，立刻检查自己的SSH授权列表（~/.ssh/authorized_keys），有多出来的key就清掉并换密码。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;浏览器和系统开自动更新。&lt;/strong&gt;补丁窗口期的武器化速度已经从&quot;周&quot;压到&quot;小时&quot;，手动更新的习惯跟不上这个节奏了。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;最小权限原则。&lt;/strong&gt;key限制地区和模型范围——Wiz报告里受限最严的那批key，被盗后滥用成功率明显更低。&lt;/li&gt;&lt;/ol&gt;
+&lt;h2&gt;五、写在最后&lt;/h2&gt;
+&lt;p&gt;三件事其实是同一件事：&lt;strong&gt;AI时代值钱的东西换了，攻击者的瞄准点也跟着换了。&lt;/strong&gt;数据还是值钱，但一把能无限刷推理的key、一条能批量投毒的更新管道、一个能自动找洞的模型，比数据更好变现。&lt;/p&gt;
+&lt;p&gt;对普通人来说，安全感的来源也要跟着换：从&quot;我把门锁好&quot;换成&quot;我交给系统的每一把钥匙，都假设它有一天会丢&quot;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p class=&quot;colophon&quot;&gt;说明：文中信息来自Wiz、Cursor、Epoch AI的公开报告与声明，以及BleepingComputer、The Verge、The Decoder的报道，均为2026年10月28日至31日披露的公开信息。&lt;/p&gt;</content:encoded>
+</item><item>
+<title>千问上了iPhone：等了两年的Apple智能进中国，赢家为什么是它</title>
+<link>https://20season25.github.io/blog/posts/qwen-on-iphone.html</link>
+<guid isPermaLink="true">https://20season25.github.io/blog/posts/qwen-on-iphone.html</guid>
+<pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>
+<description>复盘两年谈判桌：传闻主角从百度换成阿里，模型座次翻了几轮，iPhone上那个位置从没换过人。模型决定入场券，渠道决定胜负。</description>
+<content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;10月31日，Apple和阿里巴巴同时官宣：千问正式集成进Apple智能，中国的iPhone用户11月4日起可以抢先用上（开发者Beta版），12月随iOS 27.3正式推送。这条新闻表面上是个产品更新，但把它前前后后两年的时间线连起来看，你会发现它真正值得聊的不是功能，而是一个老问题的最新答案：&lt;strong&gt;在AI这轮竞争里，决定输赢的到底是模型好坏，还是别的什么东西。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;一、先把事情本身讲清楚&lt;/h2&gt;
+&lt;p&gt;这次官宣的具体内容，分三层。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一层，时间。&lt;/strong&gt;11月4日起，Apple智能的首批功能随iOS开发者Beta版在中国开放测试；12月，随iOS 27.3正式向中国用户推送。适用于国行iPhone用户，以及设备定位和Apple账户地区都设置在中国大陆的用户。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二层，功能。&lt;/strong&gt;首批功能包括：实时翻译（信息、FaceTime、电话）、写作工具（改写、校对、总结）、视觉智能、照片&quot;消除&quot;工具、智绘表情（Genmoji）、照片自然语言搜索，以及通知摘要、邮件摘要、通话转录、备忘录录音转写等一批系统级AI小功能。注意一个关键限定：&lt;strong&gt;WWDC 2026上宣布的下一代Siri和其他新一代Apple智能功能，不在这批名单里。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第三层，千问在哪。&lt;/strong&gt;这是这次合作的核心：&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Siri处理某些请求时可以接入千问，比如针对照片和文档（包括PDF、演示文稿）的提问；&lt;/li&gt;&lt;li&gt;写作工具里可以用千问，还包括一个&quot;创作&quot;功能，从零生成内容；&lt;/li&gt;&lt;li&gt;视觉智能里多了一个&quot;询问千问&quot;选项，用相机对准眼前的东西直接问；&lt;/li&gt;&lt;li&gt;使用需要登录千问账户，或者通过Apple账户授权登录。&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;阿里方面还给了一个隐私承诺：功能由用户自主选择开通，请求与回复不用于模型训练。这个承诺的可信度，后续可以观察它的隐私政策细则来验证。&lt;/p&gt;
+&lt;p&gt;支持机型：iPhone 16及之后、iPhone Duo、iPhone Air、iPhone 15 Pro/Pro Max。Siri和设备语言需设为英文或简体中文。&lt;/p&gt;
+&lt;h2&gt;二、两年时间线：这件事真正的信息量在这里&lt;/h2&gt;
+&lt;p&gt;孤立地看，这是一次普通的产品推送。把时间线拉开，味道就出来了：&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;2024年6月&lt;/strong&gt;：Apple智能在WWDC上全球发布，首发市场名单里没有中国大陆。当时媒体报道苹果在接触中国AI公司，传闻中的主角是百度。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;2025年2-3月&lt;/strong&gt;：风向变了。阿里巴巴方面确认与苹果达成合作，千问将为中国版Apple智能提供支持。消息传出当天，阿里市值一度增加约170亿美元。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;2025年5月起&lt;/strong&gt;：进入监管审批流程。生成式AI在中国境内提供服务需要通过备案，苹果的自家模型和美国的Gemmon选项都绕不开这道门。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;2026年7月15日&lt;/strong&gt;：路透社确认，Apple智能在中国国家网信办完成备案。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;2026年10月31日&lt;/strong&gt;：公布开放日期。11月4日Beta，12月正式推送。&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;从2024年6月全球发布算起，中国大陆用户等了差不多两年半。全世界市值最高的公司，也没法把自己的AI功能直接搬进第二大市场——&lt;strong&gt;同一部iPhone，里面的&quot;智能&quot;是按地理切割的。&lt;/strong&gt;这是第一条认知更新：产品的边界，从来不只是技术边界。&lt;/p&gt;
+&lt;h2&gt;三、我的核心观点：这场合作里，&quot;模型最好&quot;连入场券都算不上&lt;/h2&gt;
+&lt;p&gt;看到这条新闻，很多人第一反应是去查：千问现在的跑分排第几？比DeepSeek强还是弱？&lt;/p&gt;
+&lt;p&gt;我认为这个问题的方向就错了。复盘这两年：传闻主角从百度换成阿里，中间两年里中国大模型的座次翻了好几轮，DeepSeek现象级爆发过，各家模型你追我赶——但&lt;strong&gt;iPhone上那个位置，从谈定那天起就没换过人&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;苹果要的从来不是&quot;最强的模型&quot;，而是&quot;足够好 + 能合规 + 长期稳定&quot;的伙伴。反过来，千问拿到的东西，是钱买不到的：&lt;strong&gt;系统级的默认入口。&lt;/strong&gt;Siri里、写作工具里、相机视觉智能里——用户不需要下载任何App，不需要注册任何新账号（Apple登录即可），千问就坐在那儿。移动互联网十年打出来的经验在这里依然成立：预装位和默认选项的价值，大于任何应用商店的下载量。一个App要活下来得让用户&quot;想起来用它&quot;，一个系统级入口只需要用户&quot;顺手用到它&quot;。&lt;/p&gt;
+&lt;p&gt;所以这条新闻的正确读法不是&quot;千问模型赢了&quot;，而是&quot;千问的渠道赢了&quot;。模型好不好决定了它能不能坐上牌桌，而坐上iPhone这个位置，决定了它每一年能被几亿人顺手用到。&lt;strong&gt;AI竞争的下半场，比的可能不是谁的模型更聪明，而是谁占住了默认位置。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;四、给普通用户的三句实话&lt;/h2&gt;
+&lt;ol&gt;&lt;li&gt;&lt;strong&gt;别期望过高。&lt;/strong&gt;这次首批功能，大体是苹果2024-2025年已经在海外上线的存量功能补齐，真正的新一代Siri明确不在名单里。等了两年，等来的是一个&quot;开始&quot;，不是一次&quot;跃迁&quot;。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;想尝鲜有两个门槛。&lt;/strong&gt;11月4日开的是开发者Beta，装测试版有稳定性和续航的代价，普通用户等12月的正式版更稳妥；机型必须支持（15 Pro是底线），且Siri和系统语言要设成简体中文或英文。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;隐私条款值得看一眼。&lt;/strong&gt;开通时会授权千问处理你的请求，阿里承诺不用于训练。用之前花两分钟看看授权页面写了什么，这是AI时代的基本素养——对任何一家公司的承诺都该如此，包括苹果。&lt;/li&gt;&lt;/ol&gt;
+&lt;h2&gt;五、写在最后&lt;/h2&gt;
+&lt;p&gt;这条新闻里还有一个容易被忽略的细节： Siri接入千问处理某些请求——不是全部。苹果把系统里最核心的&quot;总入口&quot;留给了自己，只把特定任务分发给了千问。&lt;/p&gt;
+&lt;p&gt;这个细节说明合作双方都清楚自己在拿什么、让什么：苹果要的是尽快补上中国市场两年的空窗，阿里要的是那个系统级的位置，而&quot;谁拥有最终用户&quot;这件事，苹果一天都没松手。&lt;/p&gt;
+&lt;p&gt;一家公司靠产品赢得位置，另一家公司靠渠道守住位置——这大概就是这场合作给所有观察者的启示：&lt;strong&gt;技术上领先只是让你有资格参赛，占据用户顺手就能用到的位置，才是真正的护城河。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p class=&quot;colophon&quot;&gt;说明：文中信息来自Apple官方新闻稿、阿里巴巴千问官方公众号推文，以及路透社、南华早报等公开报道，时间为2026年10月31日至11月2日确认的公开信息。&lt;/p&gt;</content:encoded>
+</item><item>
+<title>Anthropic招股书再读：807亿亏损是幻觉，9000亿承诺才是真债</title>
+<link>https://20season25.github.io/blog/posts/anthropic-9000b-real-debt.html</link>
+<guid isPermaLink="true">https://20season25.github.io/blog/posts/anthropic-9000b-real-debt.html</guid>
+<pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
+<description>真正吓人的数字写在报表之外：近9000亿美元算力承诺，付款期排到2045年，而还款来源写的是&quot;AI自己变强&quot;。</description>
+<content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;上一篇文章的结尾，我留了一句话：招股书里真正值得留意的风险，不是对手降价，而是那份巨额算力承诺。这篇就来兑现它。&lt;/p&gt;
+&lt;p&gt;10月31日，彭博社给出了新的数字：Anthropic 在递交的上市文件里，披露了未来近9000亿美元的投入承诺——买服务器、盖数据中心、买电。这些钱有一个共同点：&lt;strong&gt;没有出现在资产负债表的负债栏里。&lt;/strong&gt;同一个星期，The Verge 把招股书逐页拆完，算出来的总数是&quot;至少8500亿美元，把还在谈判的交易算上，接近1万亿&quot;，付款期一路排到2045年。&lt;/p&gt;
+&lt;p&gt;上一篇的结论是：807亿美元亏损是会计幻觉。这一篇的结论正好调了个头：&lt;strong&gt;这些没上报表的承诺，才是真金白银的债。&lt;/strong&gt;一家公司最吓人的数字，往往写在报表之外。&lt;/p&gt;
+&lt;h2&gt;一、先讲清楚：什么叫&quot;不上报表的债&quot;&lt;/h2&gt;
+&lt;p&gt;打个比方。别人问你有多少负债，你大概只报房贷，不会把给装修公司签的合同、未来二十年要交的物业费、跟电力公司锁定的长期电价全算进去——虽然那些也是&quot;迟早要花的钱&quot;。&lt;/p&gt;
+&lt;p&gt;Anthropic 的报表长这样：资产负债表上，现金约1120亿美元，流动负债约1175亿美元，乍一看还挺健康。但报表之外的附注里，挂着近9000亿美元的采购和租赁承诺——GPU、机房、电力，期限一到二十年，白纸黑字，签了就不能反悔。&lt;/p&gt;
+&lt;p&gt;会计规则只要求把&quot;已经发生的&quot;记全，&quot;未来必须花的&quot;可以只放在附注里。这不是造假，是规则允许的呈现方式。但华尔街这周看懂了：亚马逊、Alphabet、微软的股价都因此承压。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这一节的认知点：利润表讲过去，资产负债表讲现在，附注里的承诺讲未来。看AI公司，最后一页附注才是命门。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;二、9000亿是怎么凑出来的&lt;/h2&gt;
+&lt;p&gt;The Verge 把招股书里的承诺拆成了四笔账：&lt;/p&gt;
+&lt;ol&gt;&lt;li&gt;已签约、不可取消的最低采购承诺：2656亿美元，期限1到20年。&lt;/li&gt;&lt;li&gt;已签但还没开始执行的租约（主要是算力和基础设施）：3214亿美元——这是截至6月30日的未审计数字。&lt;/li&gt;&lt;li&gt;6月30日之后又新签的算力协议：约2450亿美元。&lt;/li&gt;&lt;li&gt;还在谈判、没落定的交易：1250亿到1500亿美元。&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;前三笔加起来约8300亿，所以 The Verge 说&quot;未来20年至少约8500亿&quot;；把第四笔算进去，就奔1万亿去了。彭博社报&quot;近9000亿&quot;，两个口径数量级一致。&lt;/p&gt;
+&lt;p&gt;顺带两个细节。其一，招股书第64页和第137页，部分合同的付款时间表是空白的——连它自己都还没想清楚怎么排。其二，上半年 Anthropic 自己披露的运营数据里，服务客户消耗的算力成本是23亿美元，而训练模型的开发投入是97亿美元。先记住97亿这个数，下面要用。&lt;/p&gt;
+&lt;h2&gt;三、增长不是选择题，是生存题&lt;/h2&gt;
+&lt;p&gt;PitchBook 的分析师 Harrison Rolfes 给这些义务做了个测算：折合下来，2027到2030年，每年大约要付900亿美元。而要维持现在的&quot;算力成本占收入比&quot;不恶化，年收入需要做到约1880亿美元。&lt;/p&gt;
+&lt;p&gt;作为对照：Anthropic 今年上半年的全部收入是163亿美元。&lt;/p&gt;
+&lt;p&gt;也就是说，缺口不是&quot;努努力&quot;能填上的，是必须在几年内再造一个十倍大的 Anthropic。The Verge 引了一句足够直白的判断：&quot;Growth is not optional for this company.&quot;——增长对这家公司不是可选项，是生存条件。&lt;/p&gt;
+&lt;p&gt;这就是为什么上一篇讲&quot;亏损是幻觉&quot;和这一篇讲&quot;承诺是真债&quot;并不矛盾：账面亏损不流走一分钱现金，而这些承诺每一笔都会变成真支出。幻觉不致命，真债才要命。&lt;/p&gt;
+&lt;h2&gt;四、史上第一份把&quot;AI自己变强&quot;写进还款来源的招股书&lt;/h2&gt;
+&lt;p&gt;The Verge 作者 Elizabeth Lopatto 的核心论点是：这套商业模式依赖疯狂的增长，而增长依赖模型能力的大幅跃迁——用行话说，叫&quot;递归自我改进&quot;。现状是 Claude 已经在人的指挥下参与开发 Claude。&lt;/p&gt;
+&lt;p&gt;更值得注意的是，招股书的风险披露章节自己也承认：模型能力提升的速度，可能超过安全、对齐和安保措施跟上的速度。&lt;/p&gt;
+&lt;p&gt;把这份招股书的商业逻辑翻译成大白话就是一句话：&lt;strong&gt;如果能造出比自己更会赚钱的机器，这些债都还得起；如果不能，8500亿的承诺就是悬在头顶的剑。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;历史上没有第二份招股书，把还款来源押在&quot;技术自己进步的速度&quot;上。Futurum 的分析师 Brendan Burke 有个很准的形容（The Verge 引用）：这份文件把&quot;一段快乐时光&quot;冻结在了纸面上——用量暴涨、算力还没跟上的那个窗口期。&lt;/p&gt;
+&lt;h2&gt;五、不只是它一家：3万亿的集体承诺&lt;/h2&gt;
+&lt;p&gt;同一天，彭博社还有另一篇统计：Alphabet、Meta、微软、亚马逊、甲骨文五家公司，未来数年在数据中心等领域的承诺合计超过3万亿美元。&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;谷歌：承诺超1万亿美元，约为一年前的八倍。&lt;/li&gt;&lt;li&gt;Meta：超8000亿美元，其中近一半是租约，最长分30年支付。&lt;/li&gt;&lt;li&gt;甲骨文：成为第一家因为AI数据中心投入、把自由现金流干成负数的大型科技公司，自己预计2028年转正，靠供应商融资和客户预付款来垫前期支出。&lt;/li&gt;&lt;li&gt;五家的租赁付款承诺合计1.3万亿美元，其他采购承诺合计1.9万亿美元。&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;我的看法：这不是五场互相独立的豪赌，而是一个博弈结构。对每一家单独看，扩张都是理性的——不买算力就丢市场，买了至少锁定供给。但当所有人同时这么想，结果就是&lt;strong&gt;集体把刹车焊死&lt;/strong&gt;：谷歌的万亿、Meta的30年租约、Anthropic排到2045年的付款表，互相咬合成一个谁都没法先停下来的系统。供应商融资、客户预付款这类安排，则把原本该一家独扛的风险，摊到了整条供应链上。链条上任何一环的现金流出问题，都会顺着合同传导给邻居。&lt;/p&gt;
+&lt;p&gt;这不是看空AI。需求是真的——900%的净收入留存率、五个季度约30倍的收入增长，都是真的。需要更新的是风险认知：&lt;strong&gt;单个公司的稳健，和一群公司承诺的总量，是两道要分开检查的题。&lt;/strong&gt;每一家都可能&quot;没问题&quot;，加在一起可能是问题。&lt;/p&gt;
+&lt;h2&gt;六、写在最后&lt;/h2&gt;
+&lt;p&gt;看完这些账，AI公司其实有三层：&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;利润是会计观点。&lt;/strong&gt;807亿美元亏损，剔掉会计处理，其实是在赚钱——这是上一篇讲的。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;现金是硬事实。&lt;/strong&gt;账上1120亿美元，够眼下的开支——这是今天补充的。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;承诺是命运。&lt;/strong&gt;8500亿到1万亿，签了字就取消不掉，付款日排在后二十年——这是今天真正的主题。&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;下次再看到任何一家AI公司的新闻，先别急着看它亏了多少。翻开招股书附注，找到&quot;不可取消的采购承诺&quot;那一栏——那一栏里写的，才是这家公司给自己定下的命运。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p class=&quot;colophon&quot;&gt;说明：文中数据来自Anthropic公开递交的S-1文件及彭博社、The Verge的公开报道，分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
+</item><item>
+<title>Anthropic要上市了：看清807亿美元&quot;亏损&quot;的真相，再谈2万亿估值</title>
+<link>https://20season25.github.io/blog/posts/anthropic-ipo-807b.html</link>
+<guid isPermaLink="true">https://20season25.github.io/blog/posts/anthropic-ipo-807b.html</guid>
+<pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate>
+<description>一家&quot;净亏807亿&quot;的公司，凭什么谈2万亿估值——看懂招股书里的会计幻觉，和1500家大客户背后的早期市场。</description>
+<content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;10月27日，AI行业把好几件大事挤在了同一天。其中分量最重的一条：Claude的母公司Anthropic正式递交了上市申请。一家账面上半年&quot;净亏807亿美元&quot;的公司，市场讨论的估值却是1.5万亿到2万亿美元。这事乍一听很荒谬，但把招股书翻开看懂之后，你会发现真正需要更新的，是我们脑子里对&quot;亏损&quot;两个字的理解。&lt;/p&gt;
+&lt;h2&gt;一、那天到底发生了什么&lt;/h2&gt;
+&lt;p&gt;先看看10月27日这一天，AI圈同时发生了什么：&lt;/p&gt;
+&lt;ol&gt;&lt;li&gt;Anthropic递交S-1文件，计划登陆纳斯达克。S-1是美国公司上市前必须公开的注册文件，公司家底要摊开给所有人看。&lt;/li&gt;&lt;li&gt;OpenAI发布新模型GPT-6.1 Terra，API价格直接砍半。&lt;/li&gt;&lt;li&gt;OpenAI宣称自家AI在数学和物理上做出三项成果，正在请外部专家核验。&lt;/li&gt;&lt;li&gt;微软向约6万名员工发出自愿离职邀约。&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;四件事看似无关，其实是一根线上的四颗珠子。先讲最粗的那颗。&lt;/p&gt;
+&lt;h2&gt;二、招股书里的关键数字&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;2023年全年收入：4100万美元。&lt;/li&gt;&lt;li&gt;2026年上半年收入：163亿美元；其中二季度单季116亿美元，同比增长1368%。&lt;/li&gt;&lt;li&gt;五个季度里，收入大约涨了30倍。&lt;/li&gt;&lt;li&gt;二季度经营利润9.74亿美元——创业以来首次转正。&lt;/li&gt;&lt;li&gt;上半年毛利率：85%。&lt;/li&gt;&lt;li&gt;上市前累计融资：1411亿美元。&lt;/li&gt;&lt;li&gt;上半年净亏损：807亿美元。&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;前六条都在讲一家公司如何起飞，最后一条看着像坠机。矛盾吗？不矛盾。这就是本文想讲清楚的第一个认知点。&lt;/p&gt;
+&lt;h2&gt;三、807亿美元亏损，多半是会计意义上的&quot;幻觉&quot;&lt;/h2&gt;
+&lt;p&gt;这份三百多页的招股书，已经被各家媒体翻了个底朝天。一个共同的发现是：这笔巨额亏损的主要来源不是&quot;钱烧光了&quot;，而是&quot;可转换票据公允价值变动&quot;。&lt;/p&gt;
+&lt;p&gt;翻译成大白话：Anthropic此前多轮融资中，资方拿到的很多是可以转成股份的凭证。按会计规则，公司估值涨得越高，这些凭证就要被重估，差额计为亏损。于是出现了很魔幻的一幕：&lt;strong&gt;公司越成功，这笔&quot;亏损&quot;越大。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;把这类会计影响剔掉，招股书披露的上半年调整后净利润是正的26.71亿美元。&lt;/p&gt;
+&lt;p&gt;这件事的认知价值在于：我们熟悉的财报语言诞生于工厂和铁路的时代，它还没准备好描述&quot;AI公司&quot;这种新物种。看不懂这一层，就会被&quot;净亏807亿&quot;的标题牵着走。&lt;/p&gt;
+&lt;h2&gt;四、900%留存率和1500家客户：往哪个方向想都吓人&lt;/h2&gt;
+&lt;p&gt;招股书里还有两个值得琢磨的数字：&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;净收入留存率约900%：去年就在付费的老客户，今年平均花了去年的10倍。&lt;/li&gt;&lt;li&gt;2025年76%的收入，来自约1500家年付费超10万美元的大企业。&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;第一个数字说明：企业客户不是在&quot;试点AI&quot;，是在把预算整体搬家。第二个数字有两种读法：悲观的读法是客户高度集中，这1500家里出状况，收入就要抖。&lt;/p&gt;
+&lt;p&gt;但我更愿意给你另一个读法——&lt;strong&gt;全世界有实力掏这个钱的公司成千上万，真正开始花的才1500家。收入五个季度涨30倍，恰恰说明这个市场还在极早期。涨得越疯，越说明游戏刚刚开始。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;五、同一天，对手把价格砍了一半&lt;/h2&gt;
+&lt;p&gt;再看OpenAI那边：GPT-6.1 Terra每百万token输入1美元、输出5美元，比上一代低50%，主打让AI直接操作电脑干活。&lt;/p&gt;
+&lt;p&gt;一边是Anthropic靠企业合同和85%毛利率冲2万亿美元估值，一边是OpenAI把&quot;智能的单价&quot;再砍一刀。我认为这不是巧合，而是两条路线的正式分岔：&lt;strong&gt;一家卖&quot;信任与合同&quot;，一家卖&quot;越来越便宜的智能本身&quot;。&lt;/strong&gt;企业每年的AI预算池子就那么大，接下来的争夺会非常直白。&lt;/p&gt;
+&lt;p&gt;顺带提醒一句：招股书里真正值得留意的风险，未必是对手降价，而是它披露的巨额算力承诺。今天的顶级AI公司，某种意义上是在预售未来的算力。&lt;/p&gt;
+&lt;h2&gt;六、另外三条消息：各泼一瓢水，各点一把火&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;OpenAI的三项科学主张（局部光滑猜想、指数时间假设、杨–米尔斯理论相关证明）如果通过学界独立核验，就是科学史级别的大事。但目前核验仍在进行，惊人的主张需要惊人的证据，先让子弹飞一会儿。&lt;/li&gt;&lt;li&gt;微软请约6万名员工&quot;自愿离开&quot;，和Anthropic的资本狂欢发生在同一周。一面是账面上的天文数字，一面是真实岗位的收缩。&lt;/li&gt;&lt;li&gt;评测机构Epoch AI用自己机构内部的真实工作任务考前沿模型，最强的两个模型平均只拿65分——按人类员工的标准，AI离&quot;替你上班&quot;还有明显距离。&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;七、写在最后&lt;/h2&gt;
+&lt;p&gt;把这一天连起来看：一家公司冲刺可能是史上最大的IPO（今年6月SpaceX刚以约750亿美元募资，把沙特阿美保持了近七年的纪录——294亿美元——大幅改写；而据媒体披露，Anthropic拟募资约1000亿美元，若落地，这个纪录一年之内将两度易主），它的对手把智能降价一半，第三家宣称AI逼近了千禧年难题，而一家老牌科技巨头在请六万人考虑离开。&lt;/p&gt;
+&lt;p&gt;这些其实是同一件事：&lt;strong&gt;AI行业正在从&quot;讲故事&quot;进入&quot;算账&quot;的阶段。&lt;/strong&gt;能看懂账本里的会计幻觉，能看懂1500家客户背后的早期市场，能看懂降价与估值的对冲关系的人，才不容易被任何一条单点新闻牵着走。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p class=&quot;colophon&quot;&gt;说明：文中数据来自Anthropic公开递交的S-1文件及公开报道，分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
+</item>
+</channel>
+</rss>

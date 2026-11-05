@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI周报 #1：这周，AI圈聊的全是&quot;钱&quot;和&quot;墙&quot; · 认知增量</title>
+<meta name="description" content="创刊号：亏损是幻觉承诺是真债、3万亿集体承诺、5000亿蒸发、内容结算与自保清单——这周该更新的六个认知。">
+<link rel="canonical" href="https://20season25.github.io/blog/posts/ai-weekly-001.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23111'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle' fill='%23fff' font-family='serif'%3E%E7%9F%A5%3C/text%3E%3C/svg%3E">
+<link rel="alternate" type="application/rss+xml" title="认知增量" href="rss.xml">
+<style>:root{--bg:#faf9f6;--ink:#1a1a18;--sub:#6b6a66;--line:#e4e1da;--card:#ffffff;
+--accent:#b32d2d;--accent-ink:#8f1f1f;--kicker:#8f1f1f;--code-bg:#f0eee8;--quote-bg:#f4f2ec}
+@media (prefers-color-scheme:dark){:root{--bg:#141412;--ink:#e8e6e1;--sub:#9a988f;
+--line:#2c2b27;--card:#1c1c19;--accent:#e05a4e;--accent-ink:#e8837a;--kicker:#e8837a;
+--code-bg:#23231f;--quote-bg:#1f1e1a}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.95 "Source Han Serif SC","Noto Serif SC","Songti SC",STSong,SimSun,Georgia,serif}
+a{color:inherit}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1.25rem}
+header.site{border-bottom:1px solid var(--line);background:var(--card)}
+.site-in{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;
+gap:.4rem;padding:1.4rem 1.25rem 1.1rem}
+.brand{font-size:1.45rem;font-weight:700;letter-spacing:.06em;text-decoration:none}
+.brand .dot{color:var(--accent)}
+.tagline{color:var(--sub);font-size:.9rem;letter-spacing:.05em}
+nav.top{font-family:system-ui,sans-serif;font-size:.88rem}
+nav.top a{color:var(--sub);text-decoration:none;margin-left:1.1rem}
+nav.top a:hover{color:var(--accent)}
+.about{margin:1.6rem 0 0;padding:1.15rem 1.3rem;background:var(--card);
+border:1px solid var(--line);border-radius:10px;font-size:.95rem}
+.about b{letter-spacing:.03em}
+.about .cols{color:var(--sub);margin-top:.45rem}
+.about .cols span{margin-right:1.1em;white-space:nowrap}
+.about .cols i{font-style:normal;color:var(--accent);font-family:system-ui,sans-serif;
+font-size:.78rem;border:1px solid var(--line);border-radius:4px;padding:.05em .45em;margin-right:.35em}
+.list{margin:1.4rem 0 3rem}
+a.card{display:block;text-decoration:none;padding:1.35rem .2rem 1.45rem;
+border-bottom:1px solid var(--line)}
+a.card:hover h2{color:var(--accent-ink)}
+.meta{font-family:system-ui,sans-serif;font-size:.8rem;color:var(--sub);
+display:flex;align-items:center;gap:.7em;margin-bottom:.45rem;letter-spacing:.04em}
+.badge{color:var(--kicker);border:1px solid var(--line);border-radius:4px;
+padding:.05em .5em;background:var(--quote-bg);white-space:nowrap}
+a.card h2{margin:.1rem 0 .4rem;font-size:1.32rem;line-height:1.5;transition:color .15s}
+.sum{color:var(--sub);font-size:.95rem;margin:0}
+.more{font-family:system-ui,sans-serif;font-size:.82rem;color:var(--accent);
+margin-top:.55rem;letter-spacing:.08em}
+footer.site{border-top:1px solid var(--line);color:var(--sub);
+font-family:system-ui,sans-serif;font-size:.8rem;line-height:1.9;padding:1.3rem 0 2.4rem}
+footer.site a{color:var(--sub)}
+article{padding:2.2rem 0 1rem}
+.kicker{font-family:system-ui,sans-serif;font-size:.8rem;letter-spacing:.12em;
+color:var(--kicker);margin-bottom:.6rem}
+h1.title{font-size:1.78rem;line-height:1.55;margin:0 0 .7rem;font-weight:700}
+p.lede{font-size:1.06rem;color:var(--sub)}
+.byline{font-family:system-ui,sans-serif;font-size:.82rem;color:var(--sub);
+padding:.75rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+margin-bottom:1.9rem;letter-spacing:.04em}
+.body h2{font-size:1.3rem;line-height:1.5;margin:2.5em 0 1em;padding-left:.6em;
+border-left:4px solid var(--accent)}
+.body h3{font-size:1.1rem;margin:2em 0 .8em}
+.body p{margin:0 0 1.35em;text-align:justify}
+.body ul,.body ol{margin:0 0 1.35em;padding-left:1.6em}
+.body li{margin-bottom:.5em}
+.body blockquote{margin:1.6em 0;padding:.9em 1.2em;background:var(--quote-bg);
+border-left:4px solid var(--accent);border-radius:0 8px 8px 0;color:var(--sub)}
+.body blockquote p{margin:0}
+.body hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+.body code{font-family:ui-monospace,Consolas,monospace;font-size:.85em;
+background:var(--code-bg);padding:.15em .45em;border-radius:4px}
+.body strong{font-weight:700}
+p.colophon{color:var(--sub);font-size:.86rem;font-family:system-ui,sans-serif;
+line-height:1.8;border-top:1px dashed var(--line);padding-top:1.1em;margin-top:2.2em}
+.series-nav{display:flex;gap:.8rem;margin:2.6rem 0 0;font-family:system-ui,sans-serif}
+.series-nav a{flex:1;text-decoration:none;border:1px solid var(--line);border-radius:10px;
+padding:.8rem 1rem;background:var(--card);font-size:.86rem}
+.series-nav a:hover{border-color:var(--accent)}
+.series-nav .dir{color:var(--sub);font-size:.75rem;display:block;margin-bottom:.25rem}
+.series-nav .next{text-align:right}
+.backline{margin:2.4rem 0 3.5rem;font-family:system-ui,sans-serif;font-size:.85rem}
+.backline a{color:var(--sub);text-decoration:none}
+.backline a:hover{color:var(--accent)}
+@media (max-width:640px){h1.title{font-size:1.45rem}a.card h2{font-size:1.18rem}}</style>
+</head>
+<body>
+<header class="site"><div class="site-in wrap" style="padding-left:0;padding-right:0">
+<a class="brand" href="index.html">认知增量<span class="dot">.</span></a>
+<span class="tagline">不复述新闻，只更新认知。</span>
+<nav class="top"><a href="index.html#about">关于</a><a href="rss.xml">RSS</a></nav>
+</div></header><main class="wrap"><article>
+<div class="kicker">AI周报 · 第 1 篇</div>
+<h1 class="title">AI周报 #1：这周，AI圈聊的全是&quot;钱&quot;和&quot;墙&quot;</h1>
+<div class="byline">2026-11-06 · Season · 约 4 分钟 · 周报</div>
+<div class="body">
+<blockquote><p>栏目说明：每周五更新。不复述新闻，只回答一个问题——这周发生的事，该更新你脑子里的哪个认知。（试刊第1期，覆盖10月26日-11月1日）</p></blockquote>
+<p class="lede">如果说前几周的AI新闻关键词是"模型"和"产品"，这一周的关键词很清楚：<strong>钱</strong>（谁在花、花多少、什么时候赚回来）和<strong>墙</strong>（谁在关门、谁被关在门外）。本周该更新的六个认知，按重要程度排序。</p>
+<h2>1. 亏损是会计幻觉，承诺才是真债</h2>
+<p>Anthropic招股书披露近9000亿美元表外承诺，付款期排到2045年。上半年"净亏807亿"主要是可转换票据的会计重估，剔掉后调整后利润为正。</p>
+<p><strong>认知更新：看AI公司，利润表讲过去，资产负债表讲现在，附注里的承诺讲未来。最后一页附注才是命门。</strong>（详细拆解见本号《Anthropic要上市了》《招股书再读》两篇）</p>
+<h2>2. 五巨头的3万亿：单独看都理性，加起来停不下来</h2>
+<p>Alphabet、Meta、微软、亚马逊、甲骨文承诺投入超3万亿美元建AI基建。谷歌一家超1万亿（一年前的八倍），Meta近半是长达30年的租约，甲骨文自由现金流已经转负。</p>
+<p><strong>认知更新：这不是五场独立的豪赌，是一个谁都没法先踩刹车的博弈结构。</strong>单看每家都"没问题"，加在一起可能是问题。</p>
+<h2>3. 谷歌史上最惨一天：AI还没赚到钱，账先来了</h2>
+<p>Alphabet单日跌12.6%、蒸发约5000亿美元市值。广告高管承认AI Mode变现效率不如传统搜索。今年资本开支最高2050亿，自由现金流负90亿。</p>
+<p><strong>认知更新：整个行业卡在"支出已All in、收入还没接上"的窄桥上。</strong>桥走不走得通，未来四个季度见分晓。</p>
+<h2>4. Reddit砌墙：内容被消费，但主人没被结算</h2>
+<p>Reddit CEO说"AI Mode不给任何人带来流量"，谷歌引荐流量每周掉超100万次访问，Reddit宣布逐步要求登录。逻辑链：AI把答案留在自己页面→网站流量枯竭→网站筑墙→AI只能付费买内容→最付得起的还是巨头。</p>
+<p><strong>认知更新：对创作者，私域和"不可被摘要替代的价值"（观点、判断、信任）升值，纯信息搬运快速贬值。</strong></p>
+<h2>5. 千问上iPhone：模型决定入场，渠道决定胜负</h2>
+<p>Apple智能11月4日在中国开Beta，12月正式推送，千问集成进Siri、写作工具和视觉智能。复盘两年谈判桌：传闻主角从百度换成阿里，模型座次翻了几轮，iPhone那个位置没换过人。</p>
+<p><strong>认知更新：AI下半场比的可能不是谁更聪明，而是谁坐在用户顺手的地方。</strong></p>
+<h2>6. 黑色十月：小偷不偷数据，改偷AI钥匙</h2>
+<p>10月九个AI开发者平台连环出事，攻击者专偷环境变量里的API密钥拿去刷模型额度；Cursor市场被塞假官方扩展，5000人中招；实验里开源模型48小时自主攻破6个Firefox版本，单次成本约1000美元。</p>
+<p><strong>认知更新：AI时代值钱的东西换了，攻击面也跟着换了——钥匙和管道比保险箱好偷。</strong>（附五条自保清单，见本号《黑色十月》）</p>
+<h2>本周快讯一览</h2>
+<ul><li>OpenAI宣布12月起将ChatGPT与Codex合并为统一Token额度（对重度用户的实质性降价，值得单独观察）</li><li>英伟达被曝洽谈为西弗吉尼亚州Anthropic数据中心提供债务担保——芯片厂开始干银行的活，这条线索下周单独展开</li><li>白宫科技顾问萨克斯称Anthropic"可能成为资本主义史上最伟大企业"——一个观点，留档待验证</li><li>Sierra宣布ARR突破4亿美元；Figma发布Weave创作平台；Gemini的Computer Use工具正式GA</li><li>微软向约6万名员工发自愿离职邀约（与AI资本开支同框出现，讽刺感拉满）</li></ul>
+<h2>下周看点</h2>
+<p>11月4日（周三）：Apple智能中国区Beta开放——第一批真实用户体验反馈会出来，千问集成的实际表现值得关注。</p>
+<hr>
+<p>*本栏目信息源包括各公司官方公告及彭博社、The Verge、Platformer、Wiz、Epoch AI等公开报道。认知更新为个人观点，不构成投资建议。*</p>
+</div>
+
+<div class="backline"><a href="../index.html">← 返回目录</a></div>
+</article></main><footer class="site"><div class="wrap">
+© 2026 Season · 认知增量 · 与微信公众号同步更新<br>
+全部内容为个人观点，不构成投资建议 · <a href="rss.xml">RSS 订阅</a>
+</div></footer>
+</body>
+</html>

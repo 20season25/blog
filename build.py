@@ -225,7 +225,7 @@ def page(title, desc, body, rel=""):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)} · {SITE["name"]}</title>
+<title>{esc(full)}</title>
 {d}
 <link rel="canonical" href="{esc(oga)}">
 <link rel="icon" href="{FAVICON}">

@@ -220,7 +220,7 @@ def page(title, desc, body, rel=""):
     d = f'<meta name="description" content="{esc(desc)}">' if desc else ""
     oga = f'{SITE["url"]}/{rel}' if rel else SITE["url"]
     full = title if SITE["name"] in title else f"{title} · {SITE['name']}"
-    prefix = "../" if rel.startswith("posts/") else ""
+    prefix = "../" if rel.startswith(("posts/", "drafts/")) else ""
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -274,7 +274,13 @@ def build_index(posts):
     return page(SITE["name"] + "｜" + SITE["tagline"], SITE["description"], body)
 
 
-def build_post(p, posts):
+def build_post(p, posts, draft=False):
+    banner = ""
+    if draft:
+        banner = ('<div style="font-family:system-ui,sans-serif;font-size:.85rem;'
+                  'background:#fff3cd;color:#664d03;border:1px solid #ffe08a;'
+                  'border-radius:8px;padding:.6rem 1rem;margin-top:1.2rem">'
+                  "🚧 草稿预览（AI 夜间生成，未经人工核实）——确认后才会发布</div>")
     kicker = f'<div class="kicker">{esc(p["series"])}{" · 第 " + str(p["order"]) + " 篇" if p.get("order") else ""}</div>' if p.get("series") else ""
     sibs = sorted([q for q in posts if q.get("series") == p.get("series") and q.get("order")
                    and p.get("order")], key=lambda q: q["order"]) if p.get("series") else []
@@ -291,6 +297,7 @@ def build_post(p, posts):
     series_nav = f'<div class="series-nav">{prev_n}{next_n}</div>' if (prev_n or next_n) else ""
     tags = " · ".join(p.get("tags") or [])
     body = header("../", "post") + f"""<main class="wrap"><article>
+{banner}
 {kicker}
 <h1 class="title">{esc(p["title"])}</h1>
 <div class="byline">{p["date"]} · {esc(SITE["author"])} · 约 {read_time(p["body"])} 分钟{(" · " + tags) if tags else ""}</div>
@@ -329,17 +336,25 @@ def build_rss(posts):
 
 def main():
     posts = load_posts()
+    published = [p for p in posts if not p.get("draft")]
+    drafts = [p for p in posts if p.get("draft")]
     os.makedirs(os.path.join(OUT, "posts"), exist_ok=True)
     with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8", newline="\n") as f:
-        f.write(build_index(posts))
-    for p in posts:
+        f.write(build_index(published))
+    for p in published:
         with open(os.path.join(OUT, "posts", p["slug"] + ".html"), "w", encoding="utf-8", newline="\n") as f:
-            f.write(build_post(p, posts))
+            f.write(build_post(p, published))
+    if drafts:
+        os.makedirs(os.path.join(OUT, "drafts"), exist_ok=True)
+        for p in drafts:
+            with open(os.path.join(OUT, "drafts", p["slug"] + ".html"), "w", encoding="utf-8", newline="\n") as f:
+                f.write(build_post(p, published, draft=True))
     with open(os.path.join(OUT, "rss.xml"), "w", encoding="utf-8", newline="\n") as f:
-        f.write(build_rss(posts))
-    print(f"OK: {len(posts)} posts -> {OUT}")
+        f.write(build_rss(published))
+    print(f"OK: {len(published)} published, {len(drafts)} drafts -> {OUT}")
     for p in posts:
-        print(f"  {p['date']}  {p['slug']}")
+        tag = "DRAFT " if p.get("draft") else ""
+        print(f"  {p['date']}  {tag}{p['slug']}")
 
 
 if __name__ == "__main__":

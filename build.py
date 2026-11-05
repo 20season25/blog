@@ -220,6 +220,7 @@ def page(title, desc, body, rel=""):
     d = f'<meta name="description" content="{esc(desc)}">' if desc else ""
     oga = f'{SITE["url"]}/{rel}' if rel else SITE["url"]
     full = title if SITE["name"] in title else f"{title} · {SITE['name']}"
+    prefix = "../" if rel.startswith("posts/") else ""
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -229,7 +230,7 @@ def page(title, desc, body, rel=""):
 {d}
 <link rel="canonical" href="{esc(oga)}">
 <link rel="icon" href="{FAVICON}">
-<link rel="alternate" type="application/rss+xml" title="{esc(SITE["name"])}" href="rss.xml">
+<link rel="alternate" type="application/rss+xml" title="{esc(SITE["name"])}" href="{prefix}rss.xml">
 <style>{CSS}</style>
 </head>
 <body>
@@ -238,19 +239,19 @@ def page(title, desc, body, rel=""):
 </html>"""
 
 
-def header(active="home"):
+def header(prefix="", active="home"):
     return f"""<header class="site"><div class="site-in wrap" style="padding-left:0;padding-right:0">
-<a class="brand" href="index.html">{SITE["name"]}<span class="dot">.</span></a>
+<a class="brand" href="{prefix}index.html">{SITE["name"]}<span class="dot">.</span></a>
 <span class="tagline">{esc(SITE["tagline"])}</span>
-<nav class="top"><a href="index.html#about">关于</a><a href="rss.xml">RSS</a></nav>
+<nav class="top"><a href="{prefix}index.html#about">关于</a><a href="{prefix}rss.xml">RSS</a></nav>
 </div></header>"""
 
 
-def footer():
+def footer(prefix=""):
     y = datetime.date.today().year
     return f"""<footer class="site"><div class="wrap">
 © {y} {esc(SITE["author"])} · {esc(SITE["name"])} · 与微信公众号同步更新<br>
-全部内容为个人观点，不构成投资建议 · <a href="rss.xml">RSS 订阅</a>
+全部内容为个人观点，不构成投资建议 · <a href="{prefix}rss.xml">RSS 订阅</a>
 </div></footer>"""
 
 
@@ -289,7 +290,7 @@ def build_post(p, posts):
                 next_n = f'<a class="next" href="{q["slug"]}.html"><span class="dir">系列下一篇 →</span>{esc(q["title"])}</a>'
     series_nav = f'<div class="series-nav">{prev_n}{next_n}</div>' if (prev_n or next_n) else ""
     tags = " · ".join(p.get("tags") or [])
-    body = header("post") + f"""<main class="wrap"><article>
+    body = header("../", "post") + f"""<main class="wrap"><article>
 {kicker}
 <h1 class="title">{esc(p["title"])}</h1>
 <div class="byline">{p["date"]} · {esc(SITE["author"])} · 约 {read_time(p["body"])} 分钟{(" · " + tags) if tags else ""}</div>
@@ -298,7 +299,7 @@ def build_post(p, posts):
 </div>
 {series_nav}
 <div class="backline"><a href="../index.html">← 返回目录</a></div>
-</article></main>""" + footer()
+</article></main>""" + footer("../")
     return page(p["title"], p["summary"], body, f"posts/{p['slug']}.html")
 
 

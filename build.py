@@ -219,6 +219,7 @@ def esc(s):
 def page(title, desc, body, rel=""):
     d = f'<meta name="description" content="{esc(desc)}">' if desc else ""
     oga = f'{SITE["url"]}/{rel}' if rel else SITE["url"]
+    full = title if SITE["name"] in title else f"{title} · {SITE['name']}"
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -269,7 +270,7 @@ def build_index(posts):
 <div class="cols"><span><i>深度</i>带观点的深度解读</span><span><i>速写</i>安全事件复盘</span><span><i>周报</i>每周五 · 六个认知</span></div>
 </section>"""
     body = header() + f'<main class="wrap">{about}<section class="list">{"".join(cards)}</section></main>' + footer()
-    return page(SITE["name"], SITE["description"], body)
+    return page(SITE["name"] + "｜" + SITE["tagline"], SITE["description"], body)
 
 
 def build_post(p, posts):

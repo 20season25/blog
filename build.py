@@ -10,6 +10,7 @@
 """
 import datetime
 import html
+import json
 import os
 import re
 
@@ -216,11 +217,12 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
-def page(title, desc, body, rel=""):
+def page(title, desc, body, rel="", jsonld=""):
     d = f'<meta name="description" content="{esc(desc)}">' if desc else ""
     oga = f'{SITE["url"]}/{rel}' if rel else SITE["url"]
     full = title if SITE["name"] in title else f"{title} · {SITE['name']}"
     prefix = "../" if rel.startswith(("posts/", "drafts/")) else ""
+    j = f'<script type="application/ld+json">{jsonld}</script>' if jsonld else ""
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -231,6 +233,7 @@ def page(title, desc, body, rel=""):
 <link rel="canonical" href="{esc(oga)}">
 <link rel="icon" href="{FAVICON}">
 <link rel="alternate" type="application/rss+xml" title="{esc(SITE["name"])}" href="{prefix}rss.xml">
+{j}
 <style>{CSS}</style>
 </head>
 <body>
@@ -243,7 +246,7 @@ def header(prefix="", active="home"):
     return f"""<header class="site"><div class="site-in wrap" style="padding-left:0;padding-right:0">
 <a class="brand" href="{prefix}index.html">{SITE["name"]}<span class="dot">.</span></a>
 <span class="tagline">{esc(SITE["tagline"])}</span>
-<nav class="top"><a href="{prefix}index.html#about">关于</a><a href="{prefix}rss.xml">RSS</a></nav>
+<nav class="top"><a href="{prefix}index.html#about">关于</a><a href="{prefix}data/compute-finance.html">数据</a><a href="{prefix}rss.xml">RSS</a></nav>
 </div></header>"""
 
 
@@ -271,7 +274,13 @@ def build_index(posts):
 <div class="cols"><span><i>深度</i>带观点的深度解读</span><span><i>速写</i>安全事件复盘</span><span><i>周报</i>每周五 · 六个认知</span></div>
 </section>"""
     body = header() + f'<main class="wrap">{about}<section class="list">{"".join(cards)}</section></main>' + footer()
-    return page(SITE["name"] + "｜" + SITE["tagline"], SITE["description"], body)
+    web = json.dumps({
+        "@context": "https://schema.org", "@type": "WebSite",
+        "name": SITE["name"], "description": SITE["description"],
+        "url": SITE["url"], "author": {"@type": "Person", "name": SITE["author"]},
+        "inLanguage": "zh-CN",
+    }, ensure_ascii=False)
+    return page(SITE["name"] + "｜" + SITE["tagline"], SITE["description"], body, jsonld=web)
 
 
 def build_post(p, posts, draft=False):
@@ -307,7 +316,16 @@ def build_post(p, posts, draft=False):
 {series_nav}
 <div class="backline"><a href="../index.html">← 返回目录</a></div>
 </article></main>""" + footer("../")
-    return page(p["title"], p["summary"], body, f"posts/{p['slug']}.html")
+    art = json.dumps({
+        "@context": "https://schema.org", "@type": "Article",
+        "headline": p["title"], "description": p["summary"],
+        "datePublished": p["date"], "dateModified": p["date"],
+        "author": {"@type": "Person", "name": SITE["author"]},
+        "publisher": {"@type": "Organization", "name": SITE["name"]},
+        "mainEntityOfPage": f'{SITE["url"]}/posts/{p["slug"]}.html',
+        "inLanguage": "zh-CN",
+    }, ensure_ascii=False)
+    return page(p["title"], p["summary"], body, f"posts/{p['slug']}.html", jsonld=art)
 
 
 def build_rss(posts):
@@ -334,6 +352,19 @@ def build_rss(posts):
 </rss>"""
 
 
+def build_sitemap(posts):
+    urls = [f'{SITE["url"]}/'] + [f'{SITE["url"]}/posts/{p["slug"]}.html' for p in posts]
+    urls.append(f'{SITE["url"]}/data/compute-finance.html')
+    today = datetime.date.today().isoformat()
+    items = "\n".join(
+        f"<url><loc>{esc(u)}</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq></url>"
+        for u in urls
+    )
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f"{items}\n</urlset>")
+
+
 def main():
     posts = load_posts()
     published = [p for p in posts if not p.get("draft")]
@@ -351,6 +382,10 @@ def main():
                 f.write(build_post(p, published, draft=True))
     with open(os.path.join(OUT, "rss.xml"), "w", encoding="utf-8", newline="\n") as f:
         f.write(build_rss(published))
+    with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8", newline="\n") as f:
+        f.write(build_sitemap(published))
+    with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8", newline="\n") as f:
+        f.write("User-agent: *\nAllow: /\n\nSitemap: " + SITE["url"] + "/sitemap.xml\n")
     print(f"OK: {len(published)} published, {len(drafts)} drafts -> {OUT}")
     for p in posts:
         tag = "DRAFT " if p.get("draft") else ""

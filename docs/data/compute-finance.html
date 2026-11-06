@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>算力金融 · 关键数字一页看懂｜认知增量</title>
+<meta name="description" content="算力金融三部曲的全部核心数字：807亿亏损的构成、9000亿表外承诺的四笔账、五巨头3万亿基建对比。数据页随文章更新。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://20season25.github.io/blog/data/compute-finance.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23111'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle' fill='%23fff' font-family='serif'%3E%E7%9F%A5%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#faf9f6;--ink:#1a1a18;--sub:#6b6a66;--line:#e4e1da;--card:#ffffff;
+--accent:#b32d2d;--accent-ink:#8f1f1f;--code-bg:#f0eee8;--quote-bg:#f4f2ec;
+--green:#2e7d4f;--gold:#a06b00}
+@media (prefers-color-scheme:dark){:root{--bg:#141412;--ink:#e8e6e1;--sub:#9a988f;
+--line:#2c2b27;--card:#1c1c19;--accent:#e05a4e;--accent-ink:#e8837a;
+--code-bg:#23231f;--quote-bg:#1f1e1a;--green:#6fbf8f;--gold:#d4a94e}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.95 "Source Han Serif SC","Noto Serif SC","Songti SC",STSong,SimSun,Georgia,serif}
+a{color:inherit}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1.25rem}
+header.site{border-bottom:1px solid var(--line);background:var(--card)}
+.site-in{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.4rem;padding:1.4rem 1.25rem 1.1rem}
+.brand{font-size:1.45rem;font-weight:700;letter-spacing:.06em;text-decoration:none}
+.brand .dot{color:var(--accent)}
+.tagline{color:var(--sub);font-size:.9rem;letter-spacing:.05em}
+nav.top{font-family:system-ui,sans-serif;font-size:.88rem}
+nav.top a{color:var(--sub);text-decoration:none;margin-left:1.1rem}
+nav.top a:hover{color:var(--accent)}
+h1{font-size:1.7rem;line-height:1.55;margin:2.2rem 0 .5rem}
+.lede{color:var(--sub);font-size:1.02rem;margin:0 0 1.8rem}
+h2{font-size:1.28rem;margin:2.8em 0 .4em;padding-left:.6em;border-left:4px solid var(--accent)}
+.h2sub{color:var(--sub);font-size:.9rem;margin:0 0 1.2rem;font-family:system-ui,sans-serif}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.3rem;margin-bottom:1.4rem}
+.bignum{font-size:2rem;font-weight:700;font-family:Georgia,"Songti SC",serif;line-height:1.2}
+.bignum small{font-size:.95rem;color:var(--sub);font-weight:400;display:block;font-family:system-ui,sans-serif;margin-top:.3rem}
+.red{color:var(--accent)}.green{color:var(--green)}.gold{color:var(--gold)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+@media(max-width:640px){.grid3{grid-template-columns:1fr 1fr}}
+.row{display:flex;align-items:center;gap:.8rem;margin:.65rem 0;font-family:system-ui,sans-serif;font-size:.88rem}
+.row .lab{width:9.5em;flex:none;color:var(--sub);text-align:right}
+.row .track{flex:1;background:var(--quote-bg);border-radius:5px;height:1.55rem;position:relative;overflow:hidden}
+.row .fill{height:100%;border-radius:5px;display:flex;align-items:center;
+justify-content:flex-end;padding:0 .5rem;color:#fff;font-size:.78rem;white-space:nowrap;min-width:2.4rem}
+.row.dashed .track{background:transparent}
+.row.dashed .fill{background:repeating-linear-gradient(45deg,var(--accent),var(--accent) 6px,transparent 6px,transparent 11px);color:var(--ink);opacity:.75}
+.stack{display:flex;height:2.3rem;border-radius:8px;overflow:hidden;margin:.4rem 0 .2rem}
+.stack div{display:flex;align-items:center;justify-content:center;color:#fff;
+font-family:system-ui,sans-serif;font-size:.74rem;white-space:nowrap;overflow:hidden}
+.legend{font-family:system-ui,sans-serif;font-size:.78rem;color:var(--sub);display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;margin:.6rem 0 0}
+.legend i{font-style:normal;display:inline-block;width:.75em;height:.75em;border-radius:2px;margin-right:.35em;vertical-align:-1px}
+.note{border-left:3px solid var(--line);padding:.2em 0 .2em 1em;color:var(--sub);font-size:.92rem;margin:1.2rem 0}
+.colophon{color:var(--sub);font-size:.84rem;font-family:system-ui,sans-serif;line-height:1.9;
+border-top:1px dashed var(--line);padding-top:1.1em;margin-top:2.6em}
+.colophon a{color:var(--sub)}
+.backline{margin:2.4rem 0 3.5rem;font-family:system-ui,sans-serif;font-size:.85rem}
+.backline a{color:var(--sub);text-decoration:none}
+.backline a:hover{color:var(--accent)}
+footer.site{border-top:1px solid var(--line);color:var(--sub);font-family:system-ui,sans-serif;
+font-size:.8rem;line-height:1.9;padding:1.3rem 0 2.4rem}
+</style>
+</head>
+<body>
+<header class="site"><div class="site-in wrap" style="padding-left:0;padding-right:0">
+<a class="brand" href="../index.html">认知增量<span class="dot">.</span></a>
+<span class="tagline">不复述新闻，只更新认知。</span>
+<nav class="top"><a href="../index.html#about">关于</a><a href="compute-finance.html">数据</a><a href="../rss.xml">RSS</a></nav>
+</div></header>
+
+<main class="wrap">
+<h1>算力金融 · 关键数字一页看懂</h1>
+<p class="lede">「算力金融三部曲」的全部核心数字，集中放在这一页：利润是会计观点，现金是硬事实，承诺是命运——而信用，是让这三样还能继续转下去的最后一环。数字随文章更新。</p>
+
+<h2>一、Anthropic 的收入引擎</h2>
+<p class="h2sub">来源：S-1 文件（2026-10-27 递交）</p>
+<div class="grid3">
+  <div class="card"><div class="bignum">163<span style="font-size:1.1rem"> 亿美元</span><small>2026 上半年收入；Q2 单季 116 亿，同比 +1368%</small></div></div>
+  <div class="card"><div class="bignum">≈30<span style="font-size:1.1rem"> 倍</span><small>五个季度的收入增长</small></div></div>
+  <div class="card"><div class="bignum">85%<small>上半年毛利率</small></div></div>
+  <div class="card"><div class="bignum">900%<small>净收入留存率：老客户今年花出去年的 10 倍</small></div></div>
+  <div class="card"><div class="bignum">1500<span style="font-size:1.1rem"> 家</span><small>年付费超 10 万美元的大企业，贡献 2025 年 76% 收入</small></div></div>
+  <div class="card"><div class="bignum">1411<span style="font-size:1.1rem"> 亿美元</span><small>上市前累计融资</small></div></div>
+</div>
+
+<h2>二、807 亿"亏损" vs 调整后利润</h2>
+<p class="h2sub">2026 上半年 · 大头是可转换票据公允价值重估：公司越成功，这笔"亏损"越大</p>
+<div class="card">
+  <div class="row"><span class="lab">报表净亏损</span>
+    <div class="track"><div class="fill red" style="width:100%;justify-content:flex-start;padding-left:.5rem">−807 亿美元</div></div></div>
+  <div class="row"><span class="lab">调整后净利润</span>
+    <div class="track"><div class="fill green" style="width:3.4%;min-width:7.2rem;color:var(--green);background:transparent;padding:0">+26.71 亿美元 →</div></div></div>
+  <p class="note">剔掉会计重估，这家公司其实在做生意赚钱。熟悉的财报语言诞生于工厂与铁路时代，还没准备好描述 AI 公司。</p>
+</div>
+
+<h2>三、9000 亿承诺的四笔账</h2>
+<p class="h2sub">都不在资产负债表的负债栏里 · 付款期一路排到 2045 年 · 来源：招股书附注、彭博社（10-31）、The Verge</p>
+<div class="card">
+  <div class="stack">
+    <div style="width:27%;background:#b32d2d">2656</div>
+    <div style="width:33%;background:#8f1f1f">3214</div>
+    <div style="width:25%;background:#c96a5a">2450</div>
+    <div style="width:15%;background:#a06b00">1250–1500</div>
+  </div>
+  <div class="legend">
+    <span><i style="background:#b32d2d"></i>已签约不可取消采购（1–20 年）</span>
+    <span><i style="background:#8f1f1f"></i>已签未执行租约（截至 6-30 未审计）</span>
+    <span><i style="background:#c96a5a"></i>6-30 后新签算力协议</span>
+    <span><i style="background:#a06b00"></i>谈判中</span>
+  </div>
+  <p class="note">两个细节：招股书第 64、137 页，部分合同付款时间表是空白；上半年服务客户算力成本 23 亿，训练投入 97 亿。</p>
+</div>
+
+<h2>四、拿什么还：承诺款 vs 收入</h2>
+<p class="h2sub">PitchBook 测算：2027–2030 年每年约付 900 亿；维持算力成本占比不恶化，年收入需做到 1880 亿</p>
+<div class="card">
+  <div class="row"><span class="lab">每年承诺付款</span>
+    <div class="track"><div class="fill" style="width:48%;background:#b32d2d">≈900 亿/年</div></div></div>
+  <div class="row"><span class="lab">现在年收入（年化）</span>
+    <div class="track"><div class="fill" style="width:17%;background:#6b6a66">≈326 亿</div></div></div>
+  <div class="row"><span class="lab">需要的年收入</span>
+    <div class="track"><div class="fill gold" style="width:100%;background:var(--gold)">1880 亿</div></div></div>
+  <p class="note">缺口不是"努努力"能填上的——必须在几年内再造一个十倍大的 Anthropic。The Verge："Growth is not optional for this company." 增长不是可选项，是生存条件。</p>
+</div>
+
+<h2>五、五巨头的 3 万亿集体承诺</h2>
+<p class="h2sub">租赁付款承诺合计 1.3 万亿 + 其他采购承诺 1.9 万亿 · 单独看都理性，加起来停不下来</p>
+<div class="card">
+  <div class="row"><span class="lab">谷歌</span>
+    <div class="track"><div class="fill" style="width:100%;background:#b32d2d">超 1 万亿 · 一年前的 8 倍</div></div></div>
+  <div class="row"><span class="lab">Anthropic</span>
+    <div class="track"><div class="fill dashed" style="width:92%;color:var(--ink);padding-right:0"><span style="margin-left:auto;margin-right:.5rem">8500 亿–1 万亿 · 排到 2045</span></div></div></div>
+  <div class="row"><span class="lab">Meta</span>
+    <div class="track"><div class="fill" style="width:80%;background:#8f1f1f">超 8000 亿 · 近半是租约，最长 30 年</div></div></div>
+  <div class="row dashed"><span class="lab">甲骨文</span>
+    <div class="track"><div class="fill" style="width:100%;background:transparent;color:var(--sub);justify-content:flex-start;padding-left:.5rem;font-size:.8rem">未披露总额 · 第一家因 AI 数据中心把自由现金流干成负数的大厂，自计 2028 转正</div></div></div>
+  <div class="row dashed"><span class="lab">英伟达</span>
+    <div class="track"><div class="fill" style="width:100%;background:transparent;color:var(--sub);justify-content:flex-start;padding-left:.5rem;font-size:.8rem">不买，改保——洽谈为 Nscale 450 亿算力合同的债务融资做信用担保</div></div></div>
+  <p class="note">这不是五场独立的豪赌，是一个谁都没法先踩刹车的博弈结构。历史上最近的对照组：朗讯、北电的供应商融资——卖方把"卖货"和"放贷"绑在一起，报表里就藏了一个自己都看不清的风险敞口。2001 年，北电从此一蹶不振。</p>
+</div>
+
+<h2>四条公开检查线</h2>
+<div class="card">
+  <p style="margin:.2rem 0">① 英伟达财报里"担保敞口 / 承诺与或有负债"字眼与金额　② Nscale 这笔融资落不落地（未来一两个季度）　③ Anthropic 现金消耗斜率——最诚实的指标　④ "供应商融资"一词在媒体与财报里的出现频率</p>
+</div>
+
+<p class="colophon">数据来源：Anthropic 公开递交的 S-1 文件及附注；彭博社（2026-10-31）；The Verge（Elizabeth Lopatto）；PitchBook（分析师 Harrison Rolfes）；The Information / 路透社 / TechCrunch（2026-10-30）。数字口径以原文为准，本页为《算力金融三部曲》的配套可视化，分析为个人观点，不构成投资建议。<br>
+系列文章：<a href="../posts/anthropic-ipo-807b.html">① 807亿亏损的真相</a> · <a href="../posts/anthropic-9000b-real-debt.html">② 9000亿承诺才是真债</a> · <a href="../posts/nvidia-as-guarantor.html">③ 英伟达开始干银行的活</a></p>
+
+<div class="backline"><a href="../index.html">← 返回目录</a></div>
+</main>
+<footer class="site"><div class="wrap">
+© 2026 Season · 认知增量 · 与微信公众号同步更新<br>
+全部内容为个人观点，不构成投资建议 · <a href="../rss.xml">RSS 订阅</a>
+</div></footer>
+</body>
+</html>

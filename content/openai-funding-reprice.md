@@ -6,7 +6,6 @@ series: 深度解读
 order:
 tags: [AI行业, 资本市场]
 summary: 不是泡沫破裂，是定价权换手——私募第一次按公开市场的规则还价，而 Anthropic 的 IPO 成了全行业的时钟。
-draft: true
 ---
 
 **导语**

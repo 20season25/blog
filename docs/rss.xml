@@ -5,7 +5,7 @@
 <link>https://20season25.github.io/blog</link>
 <description>AI 行业的深度解读与认知更新：钱、墙、人与安全。与微信公众号同步更新。</description>
 <language>zh-CN</language>
-<lastBuildDate>Fri, 06 Nov 2026 22:33:20 +0000</lastBuildDate>
+<lastBuildDate>Sun, 08 Nov 2026 15:36:47 +0000</lastBuildDate>
 <item>
 <title>英伟达开始干银行的活：AI万亿承诺背后的担保人</title>
 <link>https://20season25.github.io/blog/posts/nvidia-as-guarantor.html</link>
@@ -38,6 +38,58 @@
 &lt;p&gt;下一个观察节点：英伟达下一季财报，看它的资产负债表愿不愿意坦白。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p class=&quot;colophon&quot;&gt;说明：文中信息来自The Information首报、路透社与TechCrunch跟进的报道（2026年10月30日）及Anthropic公开的S-1文件，历史案例（朗讯、北电供应商融资）为公开史实。分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
+</item><item>
+<title>OpenAI 买下&quot;代码住的地方&quot;，AI 编程大战换战场了</title>
+<link>https://20season25.github.io/blog/posts/openai-acquires-pierre.html</link>
+<guid isPermaLink="true">https://20season25.github.io/blog/posts/openai-acquires-pierre.html</guid>
+<pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate>
+<description>没披露金额、还没交割，但可能是今年开发者赛道最重要的一笔收购——当 AI 写代码的速度超过 Git 的设计，&quot;代码住在哪&quot;成了新的胜负手。</description>
+<content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;11 月 4 日，OpenAI 官宣收购 Pierre Computer Company——一家连很多开发者都没听说过的公司。没有披露金额，交易也还没交割，但如果你靠写代码吃饭，这可能是今年最值得记住的一笔收购：它标志着 AI 编程大战的主战场，正在从&quot;谁的模型写代码更厉害&quot;，挪到&quot;&lt;strong&gt;代码住在哪&lt;/strong&gt;&quot;。&lt;/p&gt;
+&lt;h2&gt;一、Pierre 是谁，OpenAI 到底买了什么&lt;/h2&gt;
+&lt;p&gt;Pierre Computer Company 的出名产品叫 Code Storage——一套代码管理系统，外加若干开源开发者工具。三个关键事实：&lt;/p&gt;
+&lt;ol&gt;&lt;li&gt;它的技术&lt;strong&gt;已经在 Codex 里运行&lt;/strong&gt;了——这不是&quot;买来再整合&quot;，而是&quot;先用爽了再买下&quot;；&lt;/li&gt;&lt;li&gt;OpenAI 官方的说法很克制：扩展 Codex 在构建、理解和审查代码上的工具能力；据 The Decoder 分析，核心指向是&quot;&lt;strong&gt;让 Git 跟上 AI 编程 Agent 的速度&lt;/strong&gt;&quot;；&lt;/li&gt;&lt;li&gt;交易尚未交割，条款未披露。Axios 的独家报道称，这笔交易给 Codex 增加了三个工具，并直接点名了它的对标对象：&lt;strong&gt;微软的 GitHub&lt;/strong&gt;。&lt;/li&gt;&lt;/ol&gt;
+&lt;h2&gt;二、被推翻的认知：模型强，不再等于赢&lt;/h2&gt;
+&lt;p&gt;过去两年，我们默认 AI 编程的竞争是&quot;模型竞争&quot;：跑分、SWE-bench、谁修复的 issue 更多。这个认知该更新了。&lt;/p&gt;
+&lt;p&gt;Git 是 2005 年为&lt;strong&gt;人类&lt;/strong&gt;设计的：commit 是人的节奏，PR 是人的节奏，code review 是人的节奏。但当 AI Agent 开始以小时为单位生成 PR、自己跑测试、自己提变更——&lt;strong&gt;瓶颈不再是&quot;谁写得好&quot;，而是&quot;承载这一切的基础设施还停留在人类节奏上&quot;&lt;/strong&gt;。评审洪水、commit 语义消失、变更归属混乱，这些都是 Agent 时代版本控制的真空地带。&lt;/p&gt;
+&lt;p&gt;谁先把这个真空填掉，谁就占据了开发者每天八小时真正&quot;住着&quot;的地方。模型可以换，工作区不会天天换。&lt;/p&gt;
+&lt;h2&gt;三、这套打法，我们上个月刚见过&lt;/h2&gt;
+&lt;p&gt;是不是很眼熟？千问进 iPhone 那篇的核心判断是：&lt;strong&gt;渠道比模型重要，默认位是买不来的护城河&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;把那套逻辑平移到开发者市场：模型 API 是&quot;应用商店&quot;，谁都能接；而代码托管、评审流、CI 是开发者的&quot;系统级入口&quot;——一旦 Agent 原生的工作流长在某家平台上，迁移成本会远高于换一个模型 API。OpenAI 内嵌 Pierre 再买下 Pierre，和千问坐在 Siri 里，是同一种动作。&lt;/p&gt;
+&lt;p&gt;更妙的是攻防方向：GitHub 是微软的护城河，而 AI 原生的代码基础设施刚好是它最难转身的地方——&lt;strong&gt;用旧护城河里长不出新护城河&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2&gt;四、给普通开发者的三个提醒&lt;/h2&gt;
+&lt;ol&gt;&lt;li&gt;&lt;strong&gt;关注 Agent 原生工作流，而不是又一个框架。&lt;/strong&gt;未来一年开发者工具的关键词是&quot;评审自动化&quot;&quot;变更语义&quot;&quot;代码资产管理&quot;，这些才是位置。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&quot;评审&quot;会是人类的新瓶颈岗位。&lt;/strong&gt;AI 生成越快，人类判断越贵——会提好问题、会设验收标准的开发者，比会写的更稀缺。&lt;/li&gt;&lt;li&gt;&lt;strong&gt;警惕绑定。&lt;/strong&gt;当你的代码资产、评审历史、Agent 记忆都长在一个平台上，&quot;黑色十月&quot;那篇的钥匙管理逻辑同样适用：交给任何一家东西，都假设它有一天会变脸。&lt;/li&gt;&lt;/ol&gt;
+&lt;h2&gt;写在最后&lt;/h2&gt;
+&lt;p&gt;这笔收购的金额我们不知道，但它的指向足够清楚：&lt;strong&gt;当模型能力被逐渐拉平——我们自己的内容流水线就在亲身证明这件事——&quot;工作发生的地方&quot;才是新的护城河。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;上周我们刚聊过&quot;私募市场开始还价&quot;。这周 OpenAI 用一笔收购给出了另一面的答案：钱要花在模型之外的地方。一个公司同时做这两件事，说明它比谁都清楚——模型红利在通缩，位置红利在通胀。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p class=&quot;colophon&quot;&gt;说明：收购事实与战略表述来自 OpenAI 官方公告（2026-11-04，openai.com/index/openai-to-acquire-pierre）及 The Decoder、Axios、The Information 的报道（2026-11-04/05）。交易尚未交割、金额未披露，本文不涉及任何财务数字推断。分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
+</item><item>
+<title>一周蒸发 1.3 万亿、OpenAI 砍掉 100 亿融资：AI 估值的第一笔&quot;还价&quot;</title>
+<link>https://20season25.github.io/blog/posts/openai-funding-reprice.html</link>
+<guid isPermaLink="true">https://20season25.github.io/blog/posts/openai-funding-reprice.html</guid>
+<pubDate>Sat, 07 Nov 2026 00:00:00 +0000</pubDate>
+<description>不是泡沫破裂，是定价权换手——私募第一次按公开市场的规则还价，而 Anthropic 的 IPO 成了全行业的时钟。</description>
+<content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;两周前写&quot;窄桥&quot;的时候，我说的是&quot;未来四个季度见分晓&quot;。分晓比预想的来得快——而且是从桥的两头一起来的：一头是公开市场，一周之内半导体板块蒸发了超过 1.3 万亿美元；另一头是私募市场，OpenAI 把融资目标从 300 亿美元砍到 200 亿。这两个数字放在一起看，比单独看任何一个都有意思。&lt;/p&gt;
+&lt;h2&gt;一、这三天发生了什么&lt;/h2&gt;
+&lt;p&gt;先摆事实。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;私募这边&lt;/strong&gt;，据英国《金融时报》报道，OpenAI 将新一轮融资目标从 300 亿美元下调约 100 亿至 200 亿美元，目标估值从 1.4 万亿美元下调至 1.25 万亿——缩水 1500 亿，幅度约 10.7%。OpenAI 要求投资者在周五前确认出资承诺。多家财经媒体转述了同一消息。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;公开市场这边&lt;/strong&gt;，11 月 5 日费城半导体类 ETF 单日下挫近 11%，是其历史上最差交易日之一；11 月 6 日科技股继续下杀，单日市值蒸发超 1 万亿美元，纳斯达克 100 指数跌 3.4%。把整周加起来，半导体板块抹去的市值超过 1.3 万亿美元。同期，四大云厂商 2026 年的资本开支指引仍在冲向 7000 亿美元量级。&lt;/p&gt;
+&lt;p&gt;一边是&quot;花钱的指引没变&quot;，一边是&quot;给钱的报价变了&quot;。这个组合，比单纯的暴跌值得琢磨。&lt;/p&gt;
+&lt;h2&gt;二、两个都会犯的认知错误&lt;/h2&gt;
+&lt;p&gt;第一种错误：&lt;strong&gt;&quot;融不到资 = AI 泡沫破裂 = 行业完了。&quot;&lt;/strong&gt; 不对。200 亿的融资目标仍然是有史以来最大规模之一，估值也还有 1.25 万亿。需求端没有消失——900% 的净收入留存率、企业把预算整体搬进 AI，这些前几篇里反复出现的事实，本周一条都没有被推翻。变了的不是需求，是&lt;strong&gt;价格&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;第二种错误：&lt;strong&gt;&quot;估值下调 10.7% = 虚惊一场。&quot;&lt;/strong&gt; 也不对。重点从来不是这 10.7%，而是它的性质：&lt;strong&gt;这是私募市场第一次公开地、成规模地按公开市场的规则还价。&lt;/strong&gt;过去两年，一级市场的估值逻辑是独立的——故事讲得越大，下一轮越高。而这一次，砍价的理由完全来自公开市场：AI 概念股连周抛售、云厂商 capex 指引吓到华尔街、投资者对&quot;烧钱叙事&quot;的容忍度到了临界点。估值体系第一次被&quot;锚&quot;在了别处。&lt;/p&gt;
+&lt;h2&gt;三、Anthropic 的 IPO，是全行业的时钟&lt;/h2&gt;
+&lt;p&gt;还有一个细节，比砍价本身更值得记住：&lt;strong&gt;OpenAI 是在赶时间。&lt;/strong&gt;多家报道都提到，它想抢在头号竞争对手 Anthropic 上市之前完成这一轮募资。&lt;/p&gt;
+&lt;p&gt;这意味着什么？意味着一级市场的游戏规则悄悄变了：以前是&quot;一级市场故事 → 撑起二级市场预期&quot;，现在倒过来了——&lt;strong&gt;二级市场给什么价，一级市场才能融什么钱。&lt;/strong&gt;而二级市场马上要给出的第一个官方标价，就是 Anthropic 的 IPO。此前市场讨论它的估值在 1.5 万亿到 2 万亿之间，最新的讨论值已经回落到 1.5 万亿附近。&lt;/p&gt;
+&lt;p&gt;这也是为什么我说窄桥&quot;晃了&quot;：桥那头的标价，现在决定了桥这头的融资能不能走通。Anthropic 上市定价那天，全行业的私募估值都要跟着对表。&lt;/p&gt;
+&lt;h2&gt;四、检查线更新&lt;/h2&gt;
+&lt;p&gt;上篇给的四条检查线，本周应该加上第五条：&lt;strong&gt;私募轮次的缩量与砍价信号。&lt;/strong&gt;以后再看到&quot;XX 公司完成 X 亿融资&quot;，先问两个问题：这一轮的目标金额被下调过吗？估值和上一轮比是涨是平是跌？在&quot;从讲故事到算账&quot;的阶段，这两个答案比金额本身诚实得多。&lt;/p&gt;
+&lt;p&gt;顺带说一句，本周还有个不显眼的注脚：各家一边在私募市场挨刀，一边把 API 价格继续往下砍。融资端收紧和收入端降价同周出现，不是巧合——&lt;strong&gt;这是全行业在拼命自证&quot;我有真实收入&quot;。&lt;/strong&gt;窄桥上的人，都在往桥那头跑。&lt;/p&gt;
+&lt;h2&gt;写在最后&lt;/h2&gt;
+&lt;p&gt;我的判断没变，但表述要更新一下：两周前说&quot;AI 行业正从讲故事进入算账的阶段&quot;，现在可以更精确——&lt;strong&gt;算账的权力已经移交给了公开市场。&lt;/strong&gt;过去两年，AI 的价格是讲出来的；从这周起，AI 的价格是要被问出来的。&lt;/p&gt;
+&lt;p&gt;对普通人，这反而是个好信号：当估值开始讲纪律，产品、留存、现金流这些&quot;无聊&quot;的东西重新值钱。泡沫的破灭从来不是行业结束时，而是行业开始认真的时候。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p class=&quot;colophon&quot;&gt;说明：OpenAI 融资目标与估值调整来自英国《金融时报》报道（2026-11-05/06），经 Yahoo Finance、TechCrunch、新浪财经等多家媒体转述确认；半导体板块跌幅与市值蒸发数据来自 Yahoo Finance 及 NBC News 报道（2026-11-05/06）；10 月中旬芯片股抛售背景来自路透社报道（2026-10-15）。Anthropic IPO 估值预期为媒体报道口径，非官方数字。分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
 </item><item>
 <title>AI周报 #1：这周，AI圈聊的全是&quot;钱&quot;和&quot;墙&quot;</title>
 <link>https://20season25.github.io/blog/posts/ai-weekly-001.html</link>

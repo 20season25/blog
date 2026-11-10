@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""「认知增量」静态博客生成器（零依赖，仅标准库）。
+"""「科技情报」静态站点生成器（零依赖，仅标准库）。
 
 用法:  python build.py            # content/*.md → docs/
 约定:  content/*.md 使用 front-matter（slug/title/date/series/order/tags/summary）；
@@ -22,10 +22,10 @@ GALLERY = os.path.join(ROOT, "gallery")   # 独立站点：摄影相册，部署
 
 # ── 站点配置（改名/改签名只动这里）──────────────────────────────
 SITE = {
-    "name": "认知增量",
-    "tagline": "不复述新闻，只更新认知。",
+    "name": "科技情报",
+    "tagline": "",
     "author": "Season",
-    "description": "AI 行业的深度解读与认知更新：钱、墙、人与安全。与微信公众号同步更新。",
+    "description": "AI 行业的深度解读与行业观察。",
     "url": "https://softslow.cloud/technews",
 }
 # ────────────────────────────────────────────────────────────────
@@ -269,17 +269,16 @@ def page(title, desc, body, rel="", jsonld=""):
 
 def header(prefix="", active="home"):
     return f"""<header class="site"><div class="site-in wrap" style="padding-left:0;padding-right:0">
-<a class="brand" href="{prefix}index.html">{SITE["name"]}<span class="dot">.</span></a>
-<span class="tagline">{esc(SITE["tagline"])}</span>
-<nav class="top"><a href="{prefix}index.html#about">关于</a><a href="{prefix}data/compute-finance.html">数据</a><a href="{prefix}rss.xml">RSS</a></nav>
+<a class="brand" href="{prefix}index.html">{SITE["name"]}</a>
+<nav class="top"><a href="{prefix}rss.xml">RSS</a></nav>
 </div></header>"""
 
 
 def footer(prefix=""):
     y = datetime.date.today().year
     return f"""<footer class="site"><div class="wrap">
-© {y} {esc(SITE["author"])} · {esc(SITE["name"])} · 与微信公众号同步更新<br>
-全部内容为个人观点，不构成投资建议 · <a href="{prefix}rss.xml">RSS 订阅</a>
+© {y} {esc(SITE["author"])} · <a href="{prefix}rss.xml">RSS</a><br>
+全部内容为个人观点，不构成投资建议
 </div></footer>"""
 
 
@@ -293,19 +292,14 @@ def build_index(posts):
 <p class="sum">{esc(p["summary"])}</p>
 <div class="more">阅读全文 →</div>
 </a>""")
-    about = f"""<section class="about" id="about">
-<b>{esc(SITE["name"])}</b> — {esc(SITE["description"])}<br>
-这里只做一件事：把每周 AI 圈的噪音，蒸馏成值得留下的判断。
-<div class="cols"><span><i>深度</i>带观点的深度解读</span><span><i>速写</i>安全事件复盘</span><span><i>周报</i>每周五 · 六个认知</span></div>
-</section>"""
-    body = header() + f'<main class="wrap">{about}<section class="list">{"".join(cards)}</section></main>' + footer()
+    body = header() + f'<main class="wrap"><section class="list">{"".join(cards)}</section></main>' + footer()
     web = json.dumps({
         "@context": "https://schema.org", "@type": "WebSite",
         "name": SITE["name"], "description": SITE["description"],
         "url": SITE["url"], "author": {"@type": "Person", "name": SITE["author"]},
         "inLanguage": "zh-CN",
     }, ensure_ascii=False)
-    return page(SITE["name"] + "｜" + SITE["tagline"], SITE["description"], body, jsonld=web)
+    return page(SITE["name"], SITE["description"], body, jsonld=web)
 
 
 def build_post(p, posts, draft=False):
@@ -401,7 +395,7 @@ def build_rss(posts):
 <guid isPermaLink="true">{SITE["url"]}/posts/{p["slug"]}.html</guid>
 <pubDate>{datetime.datetime.strptime(p["date"], "%Y-%m-%d").replace(tzinfo=datetime.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S %z")}</pubDate>
 <description>{esc(p["summary"])}</description>
-<content:encoded>{esc("<div>" + SITE["tagline"] + "</div>" + p["html"])}</content:encoded>
+<content:encoded>{esc(p["html"])}</content:encoded>
 </item>""")
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
@@ -525,7 +519,6 @@ def build_photos():
 
 def build_sitemap(posts):
     urls = [f'{SITE["url"]}/'] + [f'{SITE["url"]}/posts/{p["slug"]}.html' for p in posts]
-    urls.append(f'{SITE["url"]}/data/compute-finance.html')
     today = datetime.date.today().isoformat()
     items = "\n".join(
         f"<url><loc>{esc(u)}</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq></url>"

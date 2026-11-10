@@ -13,6 +13,7 @@ import html
 import json
 import os
 import re
+import urllib.parse
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CONTENT = os.path.join(ROOT, "content")
@@ -109,6 +110,21 @@ padding:.8rem 1rem;background:var(--card);font-size:.86rem}
 .backline a{color:var(--sub);text-decoration:none}
 .backline a:hover{color:var(--accent)}
 @media (max-width:640px){h1.title{font-size:1.45rem}a.card h2{font-size:1.18rem}}
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin:2.4rem 0 0;
+font-family:system-ui,sans-serif;padding:1.1rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.share .s-label{font-size:.82rem;color:var(--sub);letter-spacing:.1em}
+.share a.s-btn,.share summary.s-btn{font-size:.82rem;color:var(--ink);text-decoration:none;
+border:1px solid var(--line);border-radius:6px;padding:.35em .9em;background:var(--card);cursor:pointer;
+list-style:none;display:inline-block}
+.share a.s-btn:hover,.share summary.s-btn:hover{border-color:var(--accent);color:var(--accent-ink)}
+.share summary.s-btn::-webkit-details-marker{display:none}
+.share details.s-qr{display:inline-block;position:relative}
+.share details[open] summary.s-btn{border-color:var(--accent);color:var(--accent-ink)}
+.qrbox{position:absolute;z-index:9;top:calc(100% + .7rem);left:0;background:var(--card);
+border:1px solid var(--line);border-radius:10px;padding:.9rem .9rem .5rem;box-shadow:0 8px 28px rgba(0,0,0,.18)}
+.qrbox svg{display:block;width:136px;height:136px;background:#fff;border-radius:6px}
+.qrbox .qr-tip{font-size:.72rem;color:var(--sub);text-align:center;margin-top:.45rem;white-space:nowrap}
+.copydone{color:var(--green,#2e7d4f)!important;border-color:var(--green,#2e7d4f)!important}
 """.strip()
 
 
@@ -231,6 +247,8 @@ def page(title, desc, body, rel="", jsonld=""):
 <title>{esc(full)}</title>
 {d}
 <link rel="canonical" href="{esc(oga)}">
+<meta property="og:image" content="{esc(SITE["url"])}/assets/cover.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{FAVICON}">
 <link rel="alternate" type="application/rss+xml" title="{esc(SITE["name"])}" href="{prefix}rss.xml">
 {j}
@@ -304,6 +322,35 @@ def build_post(p, posts, draft=False):
                 q = sibs[idx + 1]
                 next_n = f'<a class="next" href="{q["slug"]}.html"><span class="dir">系列下一篇 →</span>{esc(q["title"])}</a>'
     series_nav = f'<div class="series-nav">{prev_n}{next_n}</div>' if (prev_n or next_n) else ""
+    enc_url = urllib.parse.quote(f'{SITE["url"]}/posts/{p["slug"]}.html', safe="")
+    enc_t = urllib.parse.quote(p["title"], safe="")
+    share = f"""<div class="share">
+<span class="s-label">分享</span>
+<a class="s-btn copybtn" href="javascript:void(0)" onclick="copyLink(this)">复制链接</a>
+<details class="s-qr"><summary class="s-btn">微信扫码</summary>
+<div class="qrbox"><div data-qr></div><div class="qr-tip">微信扫一扫，手机上阅读</div></div>
+</details>
+<a class="s-btn" target="_blank" rel="noopener" href="https://service.weibo.com/share/share.php?url={enc_url}&amp;title={enc_t}">微博</a>
+<a class="s-btn" target="_blank" rel="noopener" href="https://x.com/intent/post?url={enc_url}&amp;text={enc_t}">X</a>
+</div>
+<script src="../assets/qrcode.min.js"></script>
+<script>
+function copyLink(btn){{
+  var t = location.href;
+  var done = function(){{ if(btn){{ var o = btn.textContent; btn.textContent = '已复制 ✓';
+    btn.classList.add('copydone'); setTimeout(function(){{ btn.textContent = o;
+    btn.classList.remove('copydone'); }}, 1600); }} }};
+  if (navigator.clipboard) {{ navigator.clipboard.writeText(t).then(done, function(){{ prompt('复制链接：', t); }}); }}
+  else {{ prompt('复制链接：', t); }}
+}}
+document.querySelectorAll('details.s-qr').forEach(function(d){{
+  d.addEventListener('toggle', function(){{ var box = d.querySelector('[data-qr]');
+    if (d.open && box && !box.dataset.done) {{ box.dataset.done = '1';
+      try {{ var q = qrcode(0, 'M'); q.addData(location.href); q.make();
+        box.innerHTML = q.createSvgTag({{cellSize: 4, margin: 0}}); }}
+      catch(e) {{ box.textContent = '生成失败，请直接复制链接'; }} }} }});
+}});
+</script>"""
     tags = " · ".join(p.get("tags") or [])
     body = header("../", "post") + f"""<main class="wrap"><article>
 {banner}
@@ -313,6 +360,7 @@ def build_post(p, posts, draft=False):
 <div class="body">
 {p["html"]}
 </div>
+{share}
 {series_nav}
 <div class="backline"><a href="../index.html">← 返回目录</a></div>
 </article></main>""" + footer("../")

@@ -6,6 +6,8 @@
 <title>认知增量｜不复述新闻，只更新认知。</title>
 <meta name="description" content="AI 行业的深度解读与认知更新：钱、墙、人与安全。与微信公众号同步更新。">
 <link rel="canonical" href="https://20season25.github.io/blog">
+<meta property="og:image" content="https://20season25.github.io/blog/assets/cover.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23111'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle' fill='%23fff' font-family='serif'%3E%E7%9F%A5%3C/text%3E%3C/svg%3E">
 <link rel="alternate" type="application/rss+xml" title="认知增量" href="rss.xml">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "认知增量", "description": "AI 行业的深度解读与认知更新：钱、墙、人与安全。与微信公众号同步更新。", "url": "https://20season25.github.io/blog", "author": {"@type": "Person", "name": "Season"}, "inLanguage": "zh-CN"}</script>
@@ -83,7 +85,22 @@ padding:.8rem 1rem;background:var(--card);font-size:.86rem}
 .backline{margin:2.4rem 0 3.5rem;font-family:system-ui,sans-serif;font-size:.85rem}
 .backline a{color:var(--sub);text-decoration:none}
 .backline a:hover{color:var(--accent)}
-@media (max-width:640px){h1.title{font-size:1.45rem}a.card h2{font-size:1.18rem}}</style>
+@media (max-width:640px){h1.title{font-size:1.45rem}a.card h2{font-size:1.18rem}}
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin:2.4rem 0 0;
+font-family:system-ui,sans-serif;padding:1.1rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.share .s-label{font-size:.82rem;color:var(--sub);letter-spacing:.1em}
+.share a.s-btn,.share summary.s-btn{font-size:.82rem;color:var(--ink);text-decoration:none;
+border:1px solid var(--line);border-radius:6px;padding:.35em .9em;background:var(--card);cursor:pointer;
+list-style:none;display:inline-block}
+.share a.s-btn:hover,.share summary.s-btn:hover{border-color:var(--accent);color:var(--accent-ink)}
+.share summary.s-btn::-webkit-details-marker{display:none}
+.share details.s-qr{display:inline-block;position:relative}
+.share details[open] summary.s-btn{border-color:var(--accent);color:var(--accent-ink)}
+.qrbox{position:absolute;z-index:9;top:calc(100% + .7rem);left:0;background:var(--card);
+border:1px solid var(--line);border-radius:10px;padding:.9rem .9rem .5rem;box-shadow:0 8px 28px rgba(0,0,0,.18)}
+.qrbox svg{display:block;width:136px;height:136px;background:#fff;border-radius:6px}
+.qrbox .qr-tip{font-size:.72rem;color:var(--sub);text-align:center;margin-top:.45rem;white-space:nowrap}
+.copydone{color:var(--green,#2e7d4f)!important;border-color:var(--green,#2e7d4f)!important}</style>
 </head>
 <body>
 <header class="site"><div class="site-in wrap" style="padding-left:0;padding-right:0">

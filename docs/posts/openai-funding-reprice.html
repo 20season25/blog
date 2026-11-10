@@ -89,10 +89,11 @@ padding:.8rem 1rem;background:var(--card);font-size:.86rem}
 .share{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin:2.4rem 0 0;
 font-family:system-ui,sans-serif;padding:1.1rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .share .s-label{font-size:.82rem;color:var(--sub);letter-spacing:.1em}
-.share a.s-btn,.share summary.s-btn{font-size:.82rem;color:var(--ink);text-decoration:none;
+.share a.s-btn,.share button.s-btn,.share summary.s-btn{font-size:.82rem;color:var(--ink);text-decoration:none;
 border:1px solid var(--line);border-radius:6px;padding:.35em .9em;background:var(--card);cursor:pointer;
-list-style:none;display:inline-block}
-.share a.s-btn:hover,.share summary.s-btn:hover{border-color:var(--accent);color:var(--accent-ink)}
+list-style:none;display:inline-block;font-family:inherit;line-height:inherit}
+.share a.s-btn:hover,.share button.s-btn:hover,.share summary.s-btn:hover{border-color:var(--accent);color:var(--accent-ink)}
+.share button.s-btn[hidden]{display:none}
 .share summary.s-btn::-webkit-details-marker{display:none}
 .share details.s-qr{display:inline-block;position:relative}
 .share details[open] summary.s-btn{border-color:var(--accent);color:var(--accent-ink)}
@@ -137,7 +138,8 @@ border:1px solid var(--line);border-radius:10px;padding:.9rem .9rem .5rem;box-sh
 </div>
 <div class="share">
 <span class="s-label">分享</span>
-<a class="s-btn copybtn" href="javascript:void(0)" onclick="copyLink(this)">复制链接</a>
+<button type="button" class="s-btn copybtn" onclick="copyLink(this)">复制链接</button>
+<button type="button" class="s-btn sharebtn" onclick="sysShare(this)" hidden>系统分享</button>
 <details class="s-qr"><summary class="s-btn">微信扫码</summary>
 <div class="qrbox"><div data-qr></div><div class="qr-tip">微信扫一扫，手机上阅读</div></div>
 </details>
@@ -154,6 +156,14 @@ function copyLink(btn){
   if (navigator.clipboard) { navigator.clipboard.writeText(t).then(done, function(){ prompt('复制链接：', t); }); }
   else { prompt('复制链接：', t); }
 }
+function sysShare(btn){
+  if (!navigator.share) return;
+  navigator.share({ title: document.title, url: location.href }).catch(function(){});
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var sb = document.querySelector('.share .sharebtn');
+  if (sb && navigator.share) sb.hidden = false;   // 仅移动端/支持时显示
+});
 document.querySelectorAll('details.s-qr').forEach(function(d){
   d.addEventListener('toggle', function(){ var box = d.querySelector('[data-qr]');
     if (d.open && box && !box.dataset.done) { box.dataset.done = '1';

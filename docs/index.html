@@ -89,10 +89,11 @@ padding:.8rem 1rem;background:var(--card);font-size:.86rem}
 .share{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin:2.4rem 0 0;
 font-family:system-ui,sans-serif;padding:1.1rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .share .s-label{font-size:.82rem;color:var(--sub);letter-spacing:.1em}
-.share a.s-btn,.share summary.s-btn{font-size:.82rem;color:var(--ink);text-decoration:none;
+.share a.s-btn,.share button.s-btn,.share summary.s-btn{font-size:.82rem;color:var(--ink);text-decoration:none;
 border:1px solid var(--line);border-radius:6px;padding:.35em .9em;background:var(--card);cursor:pointer;
-list-style:none;display:inline-block}
-.share a.s-btn:hover,.share summary.s-btn:hover{border-color:var(--accent);color:var(--accent-ink)}
+list-style:none;display:inline-block;font-family:inherit;line-height:inherit}
+.share a.s-btn:hover,.share button.s-btn:hover,.share summary.s-btn:hover{border-color:var(--accent);color:var(--accent-ink)}
+.share button.s-btn[hidden]{display:none}
 .share summary.s-btn::-webkit-details-marker{display:none}
 .share details.s-qr{display:inline-block;position:relative}
 .share details[open] summary.s-btn{border-color:var(--accent);color:var(--accent-ink)}

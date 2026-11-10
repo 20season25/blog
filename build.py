@@ -18,6 +18,7 @@ import urllib.parse
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CONTENT = os.path.join(ROOT, "content")
 OUT = os.path.join(ROOT, "docs")
+GALLERY = os.path.join(ROOT, "gallery")   # 独立站点：摄影相册，部署到 /photos/
 
 # ── 站点配置（改名/改签名只动这里）──────────────────────────────
 SITE = {
@@ -270,7 +271,7 @@ def header(prefix="", active="home"):
     return f"""<header class="site"><div class="site-in wrap" style="padding-left:0;padding-right:0">
 <a class="brand" href="{prefix}index.html">{SITE["name"]}<span class="dot">.</span></a>
 <span class="tagline">{esc(SITE["tagline"])}</span>
-<nav class="top"><a href="{prefix}index.html#about">关于</a><a href="{prefix}data/compute-finance.html">数据</a><a href="{prefix}photos/">相册</a><a href="{prefix}rss.xml">RSS</a></nav>
+<nav class="top"><a href="{prefix}index.html#about">关于</a><a href="{prefix}data/compute-finance.html">数据</a><a href="{prefix}rss.xml">RSS</a></nav>
 </div></header>"""
 
 
@@ -464,20 +465,43 @@ document.addEventListener('keydown',function(e){
 
 
 def build_photos():
+    """独立相册页（部署到 /photos/，不隶属于 /technews）。"""
     import json as _json
     src = os.path.join(ROOT, "photos.json")
     if not os.path.exists(src):
         return None
     photos = _json.load(open(src, encoding="utf-8"))
     figs = []
-    for p in photos:
+    for idx, p in enumerate(photos):
         fn = os.path.basename(p["url"])
+        # 首屏 8 张直接加载（避免部分浏览器对首屏 lazy 图片不触发），其余懒加载
+        lazy = "" if idx < 8 else ' loading="lazy"'
         figs.append(
             f'<figure data-title="{esc(p.get("title",""))}" data-desc="{esc(p.get("description",""))}">'
-            f'<img src="{esc(fn)}" alt="{esc(p.get("title",""))}" loading="lazy">'
+            f'<img src="{esc(fn)}" alt="{esc(p.get("title",""))}"{lazy}>'
             f'<figcaption>{esc(p.get("title",""))} · {esc(p.get("location",""))}</figcaption></figure>'
         )
-    body = header("../", "photos") + f"""<main class="wrap"><article>
+    return f"""<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>冬冬的镜头 · 摄影</title>
+<meta name="description" content="冬冬的摄影作品：深圳的海、雨与山。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23111'/%3E%3Ctext x='50' y='72' font-size='58' text-anchor='middle' fill='%23fff' font-family='serif'%3E%E5%BD%B1%3C/text%3E%3C/svg%3E">
+<style>{CSS}{PHOTO_CSS}
+.gallery{{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:900px){{.gallery{{grid-template-columns:repeat(3,1fr)}}}}
+@media(max-width:640px){{.gallery{{grid-template-columns:repeat(2,1fr)}}}}
+</style>
+</head>
+<body>
+<header class="site"><div class="site-in wrap" style="padding-left:0;padding-right:0">
+<a class="brand" href="/">Season<span class="dot">.</span></a>
+<span class="tagline">摄影</span>
+<nav class="top"><a href="/">主页</a><a href="/technews/">科技情报</a><a href="/breath/">呼吸</a></nav>
+</div></header>
+<main class="wrap"><article>
 <div class="kicker">摄影</div>
 <h1 class="title">冬冬的镜头</h1>
 <p class="lede">我的朋友冬冬是一位摄影师。这是他镜头下的深圳——海、雨、山里的雾，和那些刚好被撞见的瞬间。</p>
@@ -490,11 +514,13 @@ def build_photos():
 </div>
 <div id="lb"><span class="x">×</span><span class="nav prev">‹</span><span class="nav next">›</span>
 <img src="" alt=""><div class="cap"><span class="t"></span><span class="d"></span></div></div>
-<div class="backline"><a href="../index.html">← 返回目录</a></div>
 </article></main>
-<style>{PHOTO_CSS}</style>
-<script>{PHOTO_JS}</script>""" + footer("../")
-    return page("冬冬的镜头 · 摄影", "冬冬的摄影作品：深圳的海、雨与山。", body, "photos/index.html")
+<footer class="site"><div class="wrap">
+© 2026 Season · 摄影作品版权归冬冬所有，请勿转载
+</div></footer>
+<script>{PHOTO_JS}</script>
+</body>
+</html>"""
 
 
 def build_sitemap(posts):
@@ -529,10 +555,10 @@ def main():
         f.write(build_rss(published))
     g = build_photos()
     if g:
-        os.makedirs(os.path.join(OUT, "photos"), exist_ok=True)
-        with open(os.path.join(OUT, "photos", "index.html"), "w", encoding="utf-8", newline="\n") as f:
+        os.makedirs(GALLERY, exist_ok=True)
+        with open(os.path.join(GALLERY, "index.html"), "w", encoding="utf-8", newline="\n") as f:
             f.write(g)
-        print("photos page -> docs/photos/index.html")
+        print("photos page -> gallery/index.html")
     with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8", newline="\n") as f:
         f.write(build_sitemap(published))
     with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8", newline="\n") as f:

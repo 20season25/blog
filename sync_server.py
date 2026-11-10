@@ -10,8 +10,11 @@ import os
 import posixpath
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DOCS = os.path.join(HERE, "docs")
-REMOTE_ROOT = "/var/www/blog/aiblog"          # 只允许写这个前缀下的文件
+# (本地目录, 服务器目录, 路由前缀)
+JOBS = [
+    (os.path.join(HERE, "docs"), "/var/www/blog/aiblog", "/technews/"),
+    (os.path.join(HERE, "gallery"), "/var/www/photos", "/photos/"),
+]
 SSHTOOL = r"D:\CODE\leancoach\deploy\server-sshtool.py"
 
 spec = importlib.util.spec_from_file_location("sshtool", SSHTOOL)
@@ -33,18 +36,19 @@ def mkdirs(remote):
             print("mkdir", cur)
 
 
-n = 0
-for base, _, files in os.walk(DOCS):
-    rel = os.path.relpath(base, DOCS).replace("\\", "/")
-    rdir = REMOTE_ROOT if rel == "." else posixpath.join(REMOTE_ROOT, rel)
-    mkdirs(rdir)
-    for fn in files:
-        lp = os.path.join(base, fn)
-        rp = posixpath.join(rdir, fn)
-        sftp.put(lp, rp)
-        n += 1
-        print("put ", rp)
+for local_root, remote_root, route in JOBS:
+    if not os.path.isdir(local_root):
+        print(f"skip {local_root} (不存在)")
+        continue
+    n = 0
+    for base, _, files in os.walk(local_root):
+        rel = os.path.relpath(base, local_root).replace("\\", "/")
+        rdir = remote_root if rel == "." else posixpath.join(remote_root, rel)
+        mkdirs(rdir)
+        for fn in files:
+            sftp.put(os.path.join(base, fn), posixpath.join(rdir, fn))
+            n += 1
+    print(f"完成：{n} 个文件 → {remote_root}  ({route})")
 
 sftp.close()
 cli.close()
-print(f"\n完成：{n} 个文件 → {REMOTE_ROOT}")

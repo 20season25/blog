@@ -458,23 +458,52 @@ document.addEventListener('keydown',function(e){
 """
 
 
+PHOTO_PAGE_JS = r"""
+(function(){
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  var gallery=document.querySelector('.gallery'), lb=document.getElementById('lb'),
+      lbImg=lb.querySelector('img'), capT=lb.querySelector('.cap .t'),
+      capD=lb.querySelector('.cap .d'), cur=0, imgs=[];
+  function show(i){
+    if(!imgs.length) return;
+    cur=(i+imgs.length)%imgs.length;
+    var f=imgs[cur], im=f.querySelector('img');
+    lbImg.src=im.getAttribute('src'); lbImg.alt=im.alt;
+    capT.textContent=f.dataset.title||''; capD.textContent=f.dataset.desc||'';
+    lb.classList.add('on');
+  }
+  function bind(){
+    imgs=[].slice.call(gallery.querySelectorAll('figure'));
+    imgs.forEach(function(f,i){ f.addEventListener('click',function(){ show(i); }); });
+  }
+  lb.querySelector('.x').addEventListener('click',function(){ lb.classList.remove('on'); });
+  lb.querySelector('.prev').addEventListener('click',function(e){ e.stopPropagation(); show(cur-1); });
+  lb.querySelector('.next').addEventListener('click',function(e){ e.stopPropagation(); show(cur+1); });
+  lb.addEventListener('click',function(e){ if(e.target===lb) lb.classList.remove('on'); });
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('on')) return;
+    if(e.key==='Escape') lb.classList.remove('on');
+    if(e.key==='ArrowLeft') show(cur-1);
+    if(e.key==='ArrowRight') show(cur+1);
+  });
+  fetch('photos.json?v='+Date.now()).then(function(r){ return r.json(); }).then(function(list){
+    list.sort(function(a,b){ return (+a.id)-(+b.id); });
+    gallery.innerHTML=list.map(function(p,i){
+      var fn=(p.url||'').split('/').pop();
+      var lazy = i<8 ? '' : ' loading="lazy"';
+      return '<figure data-title="'+esc(p.title)+'" data-desc="'+esc(p.description)+'">'
+        + '<img src="'+esc(fn)+'" alt="'+esc(p.title)+'"'+lazy+'>'
+        + '<figcaption>'+esc(p.title)+(p.location?' · '+esc(p.location):'')+'</figcaption></figure>';
+    }).join('');
+    bind();
+  }).catch(function(){ gallery.innerHTML='<p style="color:var(--sub)">照片加载失败，请刷新</p>'; });
+})();
+"""
+
+
 def build_photos():
-    """独立相册页（部署到 /photos/，不隶属于 /technews）。"""
-    import json as _json
-    src = os.path.join(ROOT, "photos.json")
-    if not os.path.exists(src):
-        return None
-    photos = _json.load(open(src, encoding="utf-8"))
-    figs = []
-    for idx, p in enumerate(photos):
-        fn = os.path.basename(p["url"])
-        # 首屏 8 张直接加载（避免部分浏览器对首屏 lazy 图片不触发），其余懒加载
-        lazy = "" if idx < 8 else ' loading="lazy"'
-        figs.append(
-            f'<figure data-title="{esc(p.get("title",""))}" data-desc="{esc(p.get("description",""))}">'
-            f'<img src="{esc(fn)}" alt="{esc(p.get("title",""))}"{lazy}>'
-            f'<figcaption>{esc(p.get("title",""))} · {esc(p.get("location",""))}</figcaption></figure>'
-        )
+    """独立相册页（部署到 /photos/dongdong/）。页面读取 photos.json 渲染，上传后无需重建。"""
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -503,16 +532,14 @@ def build_photos():
 <b>关于摄影师</b>　冬冬，摄影师。<br>
 这里是一个小小的展墙，如果某张照片让你停了一下，欢迎告诉我也告诉他。
 </div>
-<div class="gallery">
-{''.join(figs)}
-</div>
+<div class="gallery"></div>
 <div id="lb"><span class="x">×</span><span class="nav prev">‹</span><span class="nav next">›</span>
 <img src="" alt=""><div class="cap"><span class="t"></span><span class="d"></span></div></div>
 </article></main>
 <footer class="site"><div class="wrap">
 © 2026 Season · 摄影作品版权归冬冬所有，请勿转载
 </div></footer>
-<script>{PHOTO_JS}</script>
+<script>{PHOTO_PAGE_JS}</script>
 </body>
 </html>"""
 
@@ -552,6 +579,9 @@ def main():
         with open(os.path.join(GALLERY, "index.html"), "w", encoding="utf-8", newline="\n") as f:
             f.write(g)
         print("photos page -> gallery/index.html")
+        import shutil
+        shutil.copyfile(os.path.join(ROOT, "photos.json"), os.path.join(GALLERY, "photos.json"))
+        print("photos data -> gallery/photos.json")
     with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8", newline="\n") as f:
         f.write(build_sitemap(published))
     with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8", newline="\n") as f:

@@ -13,7 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # (本地目录, 服务器目录, 路由前缀)
 JOBS = [
     (os.path.join(HERE, "docs"), "/var/www/blog/aiblog", "/technews/"),
-    (os.path.join(HERE, "gallery"), "/var/www/photos", "/photos/"),
+    (os.path.join(HERE, "gallery"), "/var/www/photos/dongdong", "/photos/dongdong/"),
 ]
 SSHTOOL = r"D:\CODE\leancoach\deploy\server-sshtool.py"
 

@@ -1,0 +1,14 @@
+[Unit]
+Description=Dongdong photo upload service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/photo-upload/upload_server.py
+Restart=always
+RestartSec=3
+StandardOutput=append:/var/log/photo-upload.log
+StandardError=append:/var/log/photo-upload.log
+
+[Install]
+WantedBy=multi-user.target

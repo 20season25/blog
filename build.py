@@ -25,7 +25,7 @@ SITE = {
     "tagline": "不复述新闻，只更新认知。",
     "author": "Season",
     "description": "AI 行业的深度解读与认知更新：钱、墙、人与安全。与微信公众号同步更新。",
-    "url": "https://20season25.github.io/blog",
+    "url": "https://softslow.cloud/blog",
 }
 # ────────────────────────────────────────────────────────────────
 

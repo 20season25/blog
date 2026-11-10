@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
 <title>认知增量</title>
-<link>https://20season25.github.io/blog</link>
+<link>https://softslow.cloud/blog</link>
 <description>AI 行业的深度解读与认知更新：钱、墙、人与安全。与微信公众号同步更新。</description>
 <language>zh-CN</language>
-<lastBuildDate>Tue, 10 Nov 2026 01:15:15 +0000</lastBuildDate>
+<lastBuildDate>Tue, 10 Nov 2026 14:40:51 +0000</lastBuildDate>
 <item>
 <title>从 2 万亿到 1.2 万亿：史上最大 IPO 是怎么讲价的</title>
-<link>https://20season25.github.io/blog/posts/anthropic-ipo-price-talk.html</link>
-<guid isPermaLink="true">https://20season25.github.io/blog/posts/anthropic-ipo-price-talk.html</guid>
+<link>https://softslow.cloud/blog/posts/anthropic-ipo-price-talk.html</link>
+<guid isPermaLink="true">https://softslow.cloud/blog/posts/anthropic-ipo-price-talk.html</guid>
 <pubDate>Tue, 10 Nov 2026 00:00:00 +0000</pubDate>
 <description>路演还没开始，估值讨论已从 2 万亿回到 1.2-1.3 万亿——史上最大 IPO 正在被公开讲价，而它的最终定价将成为整个 AI 行业私募估值的&quot;官方汇率&quot;。</description>
 <content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;前天的结论是：Anthropic 的 IPO 是全行业的时钟。本周，钟的指针开始动了——方向是往回拨。据彭博社报道，在路演启动之前，潜在买家对这家公司 IPO 估值的讨论区间已经落到了 1.2 万亿至 1.3 万亿美元，部分投资者甚至在考虑 1.1 万亿。而就在六周前，市场还在讨论 2 万亿。&lt;/p&gt;
@@ -36,8 +36,8 @@
 &lt;p class=&quot;colophon&quot;&gt;说明：估值讨论区间与路演时间来自彭博社报道（2026-11 上旬，经凤凰财经、东方财富等转述）；原 IPO 目标区间与募资规模来自英国《金融时报》此前报道；&quot;审慎定价至 1.5 万亿、首日或跳升至 2 万亿&quot;来自《华尔街日报》报道；&quot;或低至 1 万亿&quot;来自 36 氪（单源转述，存疑）；Polymarket 数据为预测市场行情，非官方信息。所有估值均为&quot;讨论值/预期值&quot;，最终定价以路演及招股文件为准。分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
 </item><item>
 <title>英伟达开始干银行的活：AI万亿承诺背后的担保人</title>
-<link>https://20season25.github.io/blog/posts/nvidia-as-guarantor.html</link>
-<guid isPermaLink="true">https://20season25.github.io/blog/posts/nvidia-as-guarantor.html</guid>
+<link>https://softslow.cloud/blog/posts/nvidia-as-guarantor.html</link>
+<guid isPermaLink="true">https://softslow.cloud/blog/posts/nvidia-as-guarantor.html</guid>
 <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
 <description>卖芯片的公司开始替买芯片的人按手印借钱——担保、信用循环，和朗讯、北电的历史回声。</description>
 <content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;这是&quot;算力金融&quot;系列的第三篇。第一篇讲Anthropic招股书：亏损是会计幻觉。第二篇还是它：9000亿算力承诺才是真债，付款期排到2045年。这一篇回答一个更往下钻的问题：&lt;strong&gt;这些债，谁在替它背书？&lt;/strong&gt;&lt;/p&gt;
@@ -68,8 +68,8 @@
 &lt;p class=&quot;colophon&quot;&gt;说明：文中信息来自The Information首报、路透社与TechCrunch跟进的报道（2026年10月30日）及Anthropic公开的S-1文件，历史案例（朗讯、北电供应商融资）为公开史实。分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
 </item><item>
 <title>OpenAI 买下&quot;代码住的地方&quot;，AI 编程大战换战场了</title>
-<link>https://20season25.github.io/blog/posts/openai-acquires-pierre.html</link>
-<guid isPermaLink="true">https://20season25.github.io/blog/posts/openai-acquires-pierre.html</guid>
+<link>https://softslow.cloud/blog/posts/openai-acquires-pierre.html</link>
+<guid isPermaLink="true">https://softslow.cloud/blog/posts/openai-acquires-pierre.html</guid>
 <pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate>
 <description>没披露金额、还没交割，但可能是今年开发者赛道最重要的一笔收购——当 AI 写代码的速度超过 Git 的设计，&quot;代码住在哪&quot;成了新的胜负手。</description>
 <content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;11 月 4 日，OpenAI 官宣收购 Pierre Computer Company——一家连很多开发者都没听说过的公司。没有披露金额，交易也还没交割，但如果你靠写代码吃饭，这可能是今年最值得记住的一笔收购：它标志着 AI 编程大战的主战场，正在从&quot;谁的模型写代码更厉害&quot;，挪到&quot;&lt;strong&gt;代码住在哪&lt;/strong&gt;&quot;。&lt;/p&gt;
@@ -93,8 +93,8 @@
 &lt;p class=&quot;colophon&quot;&gt;说明：收购事实与战略表述来自 OpenAI 官方公告（2026-11-04，openai.com/index/openai-to-acquire-pierre）及 The Decoder、Axios、The Information 的报道（2026-11-04/05）。交易尚未交割、金额未披露，本文不涉及任何财务数字推断。分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
 </item><item>
 <title>一周蒸发 1.3 万亿、OpenAI 砍掉 100 亿融资：AI 估值的第一笔&quot;还价&quot;</title>
-<link>https://20season25.github.io/blog/posts/openai-funding-reprice.html</link>
-<guid isPermaLink="true">https://20season25.github.io/blog/posts/openai-funding-reprice.html</guid>
+<link>https://softslow.cloud/blog/posts/openai-funding-reprice.html</link>
+<guid isPermaLink="true">https://softslow.cloud/blog/posts/openai-funding-reprice.html</guid>
 <pubDate>Sat, 07 Nov 2026 00:00:00 +0000</pubDate>
 <description>不是泡沫破裂，是定价权换手——私募第一次按公开市场的规则还价，而 Anthropic 的 IPO 成了全行业的时钟。</description>
 <content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;两周前写&quot;窄桥&quot;的时候，我说的是&quot;未来四个季度见分晓&quot;。分晓比预想的来得快——而且是从桥的两头一起来的：一头是公开市场，一周之内半导体板块蒸发了超过 1.3 万亿美元；另一头是私募市场，OpenAI 把融资目标从 300 亿美元砍到 200 亿。这两个数字放在一起看，比单独看任何一个都有意思。&lt;/p&gt;
@@ -120,8 +120,8 @@
 &lt;p class=&quot;colophon&quot;&gt;说明：OpenAI 融资目标与估值调整来自英国《金融时报》报道（2026-11-05/06），经 Yahoo Finance、TechCrunch、新浪财经等多家媒体转述确认；半导体板块跌幅与市值蒸发数据来自 Yahoo Finance 及 NBC News 报道（2026-11-05/06）；10 月中旬芯片股抛售背景来自路透社报道（2026-10-15）。Anthropic IPO 估值预期为媒体报道口径，非官方数字。分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
 </item><item>
 <title>AI周报 #1：这周，AI圈聊的全是&quot;钱&quot;和&quot;墙&quot;</title>
-<link>https://20season25.github.io/blog/posts/ai-weekly-001.html</link>
-<guid isPermaLink="true">https://20season25.github.io/blog/posts/ai-weekly-001.html</guid>
+<link>https://softslow.cloud/blog/posts/ai-weekly-001.html</link>
+<guid isPermaLink="true">https://softslow.cloud/blog/posts/ai-weekly-001.html</guid>
 <pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate>
 <description>创刊号：亏损是幻觉承诺是真债、3万亿集体承诺、5000亿蒸发、内容结算与自保清单——这周该更新的六个认知。</description>
 <content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;blockquote&gt;&lt;p&gt;栏目说明：每周五更新。不复述新闻，只回答一个问题——这周发生的事，该更新你脑子里的哪个认知。（试刊第1期，覆盖10月26日-11月1日）&lt;/p&gt;&lt;/blockquote&gt;
@@ -152,8 +152,8 @@
 &lt;p&gt;*本栏目信息源包括各公司官方公告及彭博社、The Verge、Platformer、Wiz、Epoch AI等公开报道。认知更新为个人观点，不构成投资建议。*&lt;/p&gt;</content:encoded>
 </item><item>
 <title>一天蒸发5000亿：当AI搜索决定&quot;答案留下，链接消失&quot;</title>
-<link>https://20season25.github.io/blog/posts/ai-search-answer-leaves-link-dies.html</link>
-<guid isPermaLink="true">https://20season25.github.io/blog/posts/ai-search-answer-leaves-link-dies.html</guid>
+<link>https://softslow.cloud/blog/posts/ai-search-answer-leaves-link-dies.html</link>
+<guid isPermaLink="true">https://softslow.cloud/blog/posts/ai-search-answer-leaves-link-dies.html</guid>
 <pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
 <description>谷歌史上最惨一天、Reddit每周流失百万访问开始砌墙——&quot;内容免费、广告买单&quot;的旧契约，正在被AI搜索重新议价。</description>
 <content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;10月29日，两只股票同日大跌：Alphabet跌了12.6%——上市以来最惨的一天，市值蒸发约5000亿美元；Reddit跌了15%。表面看是财报季例行波动，实际上这两根大阴线讲的是同一个故事：&lt;strong&gt;AI搜索正在重写互联网的流量分配规则，而重写的代价，正开始由整个开放网络一起承担。&lt;/strong&gt;&lt;/p&gt;
@@ -177,8 +177,8 @@
 &lt;p class=&quot;colophon&quot;&gt;说明：文中信息来自Alphabet与Reddit三季度财报电话会公开内容，以及Platformer、The Decoder等媒体报道（2026年10月28日-30日），分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
 </item><item>
 <title>黑色十月：小偷不偷数据了，改偷AI钥匙</title>
-<link>https://20season25.github.io/blog/posts/black-october-ai-keys.html</link>
-<guid isPermaLink="true">https://20season25.github.io/blog/posts/black-october-ai-keys.html</guid>
+<link>https://softslow.cloud/blog/posts/black-october-ai-keys.html</link>
+<guid isPermaLink="true">https://softslow.cloud/blog/posts/black-october-ai-keys.html</guid>
 <pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
 <description>九个平台连环失窃、假官方扩展上架11小时、模型48小时自主攻破6个浏览器版本——附普通人的五条自保清单。</description>
 <content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;复盘2026年10月的AI圈安全事件，会发现一个明确的转向：攻击者最爱的目标变了。以前偷数据、偷密码，现在偷API密钥、偷模型用量、偷更新管道。三件事连起来看，普通用户也该更新一次认知了。&lt;/p&gt;
@@ -201,8 +201,8 @@
 &lt;p class=&quot;colophon&quot;&gt;说明：文中信息来自Wiz、Cursor、Epoch AI的公开报告与声明，以及BleepingComputer、The Verge、The Decoder的报道，均为2026年10月28日至31日披露的公开信息。&lt;/p&gt;</content:encoded>
 </item><item>
 <title>千问上了iPhone：等了两年的Apple智能进中国，赢家为什么是它</title>
-<link>https://20season25.github.io/blog/posts/qwen-on-iphone.html</link>
-<guid isPermaLink="true">https://20season25.github.io/blog/posts/qwen-on-iphone.html</guid>
+<link>https://softslow.cloud/blog/posts/qwen-on-iphone.html</link>
+<guid isPermaLink="true">https://softslow.cloud/blog/posts/qwen-on-iphone.html</guid>
 <pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>
 <description>复盘两年谈判桌：传闻主角从百度换成阿里，模型座次翻了几轮，iPhone上那个位置从没换过人。模型决定入场券，渠道决定胜负。</description>
 <content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;10月31日，Apple和阿里巴巴同时官宣：千问正式集成进Apple智能，中国的iPhone用户11月4日起可以抢先用上（开发者Beta版），12月随iOS 27.3正式推送。这条新闻表面上是个产品更新，但把它前前后后两年的时间线连起来看，你会发现它真正值得聊的不是功能，而是一个老问题的最新答案：&lt;strong&gt;在AI这轮竞争里，决定输赢的到底是模型好坏，还是别的什么东西。&lt;/strong&gt;&lt;/p&gt;
@@ -233,8 +233,8 @@
 &lt;p class=&quot;colophon&quot;&gt;说明：文中信息来自Apple官方新闻稿、阿里巴巴千问官方公众号推文，以及路透社、南华早报等公开报道，时间为2026年10月31日至11月2日确认的公开信息。&lt;/p&gt;</content:encoded>
 </item><item>
 <title>Anthropic招股书再读：807亿亏损是幻觉，9000亿承诺才是真债</title>
-<link>https://20season25.github.io/blog/posts/anthropic-9000b-real-debt.html</link>
-<guid isPermaLink="true">https://20season25.github.io/blog/posts/anthropic-9000b-real-debt.html</guid>
+<link>https://softslow.cloud/blog/posts/anthropic-9000b-real-debt.html</link>
+<guid isPermaLink="true">https://softslow.cloud/blog/posts/anthropic-9000b-real-debt.html</guid>
 <pubDate>Mon, 02 Nov 2026 00:00:00 +0000</pubDate>
 <description>真正吓人的数字写在报表之外：近9000亿美元算力承诺，付款期排到2045年，而还款来源写的是&quot;AI自己变强&quot;。</description>
 <content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;上一篇文章的结尾，我留了一句话：招股书里真正值得留意的风险，不是对手降价，而是那份巨额算力承诺。这篇就来兑现它。&lt;/p&gt;
@@ -273,8 +273,8 @@
 &lt;p class=&quot;colophon&quot;&gt;说明：文中数据来自Anthropic公开递交的S-1文件及彭博社、The Verge的公开报道，分析为个人观点，不构成投资建议。&lt;/p&gt;</content:encoded>
 </item><item>
 <title>Anthropic要上市了：看清807亿美元&quot;亏损&quot;的真相，再谈2万亿估值</title>
-<link>https://20season25.github.io/blog/posts/anthropic-ipo-807b.html</link>
-<guid isPermaLink="true">https://20season25.github.io/blog/posts/anthropic-ipo-807b.html</guid>
+<link>https://softslow.cloud/blog/posts/anthropic-ipo-807b.html</link>
+<guid isPermaLink="true">https://softslow.cloud/blog/posts/anthropic-ipo-807b.html</guid>
 <pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate>
 <description>一家&quot;净亏807亿&quot;的公司，凭什么谈2万亿估值——看懂招股书里的会计幻觉，和1500家大客户背后的早期市场。</description>
 <content:encoded>&lt;div&gt;不复述新闻，只更新认知。&lt;/div&gt;&lt;p class=&quot;lede&quot;&gt;10月27日，AI行业把好几件大事挤在了同一天。其中分量最重的一条：Claude的母公司Anthropic正式递交了上市申请。一家账面上半年&quot;净亏807亿美元&quot;的公司，市场讨论的估值却是1.5万亿到2万亿美元。这事乍一听很荒谬，但把招股书翻开看懂之后，你会发现真正需要更新的，是我们脑子里对&quot;亏损&quot;两个字的理解。&lt;/p&gt;

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://20season25.github.io/blog/sitemap.xml
+Sitemap: https://softslow.cloud/blog/sitemap.xml

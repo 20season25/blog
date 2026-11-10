@@ -520,24 +520,19 @@ def build_photos():
 </head>
 <body>
 <header class="site"><div class="site-in wrap" style="padding-left:0;padding-right:0">
-<a class="brand" href="/">Season<span class="dot">.</span></a>
+<a class="brand" href="./">Creadd<span class="dot">.</span></a>
 <span class="tagline">摄影</span>
-<nav class="top"><a href="/">主页</a><a href="/technews/">科技情报</a><a href="/breath/">呼吸</a></nav>
 </div></header>
 <main class="wrap"><article>
-<div class="kicker">摄影</div>
+<div class="kicker">摄影作品集</div>
 <h1 class="title">冬冬的镜头</h1>
-<p class="lede">我的朋友冬冬是一位摄影师。这是他镜头下的深圳——海、雨、山里的雾，和那些刚好被撞见的瞬间。</p>
-<div class="credit">
-<b>关于摄影师</b>　冬冬，摄影师。<br>
-这里是一个小小的展墙，如果某张照片让你停了一下，欢迎告诉我也告诉他。
-</div>
+<p class="lede">镜头下的深圳——海、雨、山里的雾，和那些刚好被撞见的瞬间。</p>
 <div class="gallery"></div>
 <div id="lb"><span class="x">×</span><span class="nav prev">‹</span><span class="nav next">›</span>
 <img src="" alt=""><div class="cap"><span class="t"></span><span class="d"></span></div></div>
 </article></main>
 <footer class="site"><div class="wrap">
-© 2026 Season · 摄影作品版权归冬冬所有，请勿转载
+© 2026 冬冬（Creadd）· 未经许可，请勿转载
 </div></footer>
 <script>{PHOTO_PAGE_JS}</script>
 </body>

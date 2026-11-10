@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://softslow.cloud/blog/sitemap.xml
+Sitemap: https://softslow.cloud/technews/sitemap.xml

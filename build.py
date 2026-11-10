@@ -25,7 +25,7 @@ SITE = {
     "tagline": "不复述新闻，只更新认知。",
     "author": "Season",
     "description": "AI 行业的深度解读与认知更新：钱、墙、人与安全。与微信公众号同步更新。",
-    "url": "https://softslow.cloud/blog",
+    "url": "https://softslow.cloud/technews",
 }
 # ────────────────────────────────────────────────────────────────
 
@@ -98,6 +98,8 @@ border-left:4px solid var(--accent);border-radius:0 8px 8px 0;color:var(--sub)}
 .body code{font-family:ui-monospace,Consolas,monospace;font-size:.85em;
 background:var(--code-bg);padding:.15em .45em;border-radius:4px}
 .body strong{font-weight:700}
+.body img{display:block;max-width:100%;height:auto;border-radius:8px;margin:1.6em auto;
+border:1px solid var(--line)}
 p.colophon{color:var(--sub);font-size:.86rem;font-family:system-ui,sans-serif;
 line-height:1.8;border-top:1px dashed var(--line);padding-top:1.1em;margin-top:2.2em}
 .series-nav{display:flex;gap:.8rem;margin:2.6rem 0 0;font-family:system-ui,sans-serif}
@@ -153,6 +155,9 @@ def parse_fm(text):
 
 def inline(s):
     s = html.escape(s, quote=False)
+    s = re.sub(r"!\[([^\]]*)\]\(([^)\s]+)\)",
+               lambda m: '<img src="' + html.escape(m.group(2), quote=True)
+                         + '" alt="' + m.group(1) + '" loading="lazy">', s)
     s = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)",
                lambda m: f'<a href="{html.escape(m.group(2), quote=True)}" target="_blank" rel="noopener">{m.group(1)}</a>', s)
     s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
@@ -238,7 +243,7 @@ def page(title, desc, body, rel="", jsonld=""):
     d = f'<meta name="description" content="{esc(desc)}">' if desc else ""
     oga = f'{SITE["url"]}/{rel}' if rel else SITE["url"]
     full = title if SITE["name"] in title else f"{title} · {SITE['name']}"
-    prefix = "../" if rel.startswith(("posts/", "drafts/")) else ""
+    prefix = "../" if rel.startswith(("posts/", "drafts/", "photos/")) else ""
     j = f'<script type="application/ld+json">{jsonld}</script>' if jsonld else ""
     return f"""<!doctype html>
 <html lang="zh-CN">
@@ -265,7 +270,7 @@ def header(prefix="", active="home"):
     return f"""<header class="site"><div class="site-in wrap" style="padding-left:0;padding-right:0">
 <a class="brand" href="{prefix}index.html">{SITE["name"]}<span class="dot">.</span></a>
 <span class="tagline">{esc(SITE["tagline"])}</span>
-<nav class="top"><a href="{prefix}index.html#about">关于</a><a href="{prefix}data/compute-finance.html">数据</a><a href="{prefix}rss.xml">RSS</a></nav>
+<nav class="top"><a href="{prefix}index.html#about">关于</a><a href="{prefix}data/compute-finance.html">数据</a><a href="{prefix}photos/">相册</a><a href="{prefix}rss.xml">RSS</a></nav>
 </div></header>"""
 
 
@@ -410,6 +415,88 @@ def build_rss(posts):
 </rss>"""
 
 
+PHOTO_CSS = """
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:1.6rem 0 2rem}
+@media(max-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}}
+.gallery figure{margin:0;position:relative;overflow:hidden;border-radius:10px;
+background:var(--code-bg);cursor:zoom-in;aspect-ratio:4/3}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;
+transition:transform .35s ease,filter .35s ease}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem .7rem .6rem;
+font-family:system-ui,sans-serif;font-size:.72rem;color:#fff;
+background:linear-gradient(transparent,rgba(0,0,0,.72));opacity:0;transition:opacity .25s}
+.gallery figure:hover figcaption{opacity:1}
+.credit{border:1px solid var(--line);background:var(--card);border-radius:12px;
+padding:1.1rem 1.25rem;margin:1.4rem 0;font-size:.92rem;color:var(--sub)}
+.credit b{color:var(--ink)}
+#lb{position:fixed;inset:0;background:rgba(8,8,7,.94);display:none;z-index:99;
+align-items:center;justify-content:center;flex-direction:column;padding:1.5rem}
+#lb.on{display:flex}
+#lb img{max-width:96vw;max-height:82vh;object-fit:contain;border-radius:6px}
+#lb .cap{color:#ddd;font-family:system-ui,sans-serif;font-size:.82rem;margin-top:.9rem;text-align:center}
+#lb .cap em{color:#9a988f;font-style:normal;display:block;margin-top:.25rem;font-size:.75rem}
+#lb .x{position:absolute;top:1rem;right:1.3rem;color:#ddd;font-size:1.6rem;cursor:pointer;
+line-height:1;font-family:system-ui,sans-serif}
+#lb .nav{position:absolute;top:50%;transform:translateY(-50%);color:#ddd;font-size:2rem;
+cursor:pointer;padding:1rem;user-select:none;font-family:system-ui,sans-serif}
+#lb .prev{left:.4rem}#lb .next{right:.4rem}
+"""
+
+PHOTO_JS = """
+var imgs=[].slice.call(document.querySelectorAll('.gallery figure'));
+var lb=document.getElementById('lb'), lbImg=lb.querySelector('img'),
+    capT=lb.querySelector('.cap .t'), capD=lb.querySelector('.cap .d'), cur=0;
+function show(i){cur=(i+imgs.length)%imgs.length;var f=imgs[cur],im=f.querySelector('img');
+  lbImg.src=im.getAttribute('src');lbImg.alt=im.alt;
+  capT.textContent=f.dataset.title||'';capD.textContent=f.dataset.desc||'';lb.classList.add('on');}
+imgs.forEach(function(f,i){f.addEventListener('click',function(){show(i);});});
+lb.querySelector('.x').addEventListener('click',function(){lb.classList.remove('on');});
+lb.querySelector('.prev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+lb.querySelector('.next').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('on');});
+document.addEventListener('keydown',function(e){
+  if(!lb.classList.contains('on'))return;
+  if(e.key==='Escape')lb.classList.remove('on');
+  if(e.key==='ArrowLeft')show(cur-1);
+  if(e.key==='ArrowRight')show(cur+1);});
+"""
+
+
+def build_photos():
+    import json as _json
+    src = os.path.join(ROOT, "photos.json")
+    if not os.path.exists(src):
+        return None
+    photos = _json.load(open(src, encoding="utf-8"))
+    figs = []
+    for p in photos:
+        fn = os.path.basename(p["url"])
+        figs.append(
+            f'<figure data-title="{esc(p.get("title",""))}" data-desc="{esc(p.get("description",""))}">'
+            f'<img src="{esc(fn)}" alt="{esc(p.get("title",""))}" loading="lazy">'
+            f'<figcaption>{esc(p.get("title",""))} · {esc(p.get("location",""))}</figcaption></figure>'
+        )
+    body = header("../", "photos") + f"""<main class="wrap"><article>
+<div class="kicker">摄影</div>
+<h1 class="title">冬冬的镜头</h1>
+<p class="lede">我的朋友冬冬是一位摄影师。这是他镜头下的深圳——海、雨、山里的雾，和那些刚好被撞见的瞬间。</p>
+<div class="credit">
+<b>关于摄影师</b>　冬冬，摄影师。<br>
+这里是一个小小的展墙，如果某张照片让你停了一下，欢迎告诉我也告诉他。
+</div>
+<div class="gallery">
+{''.join(figs)}
+</div>
+<div id="lb"><span class="x">×</span><span class="nav prev">‹</span><span class="nav next">›</span>
+<img src="" alt=""><div class="cap"><span class="t"></span><span class="d"></span></div></div>
+<div class="backline"><a href="../index.html">← 返回目录</a></div>
+</article></main>
+<style>{PHOTO_CSS}</style>
+<script>{PHOTO_JS}</script>""" + footer("../")
+    return page("冬冬的镜头 · 摄影", "冬冬的摄影作品：深圳的海、雨与山。", body, "photos/index.html")
+
+
 def build_sitemap(posts):
     urls = [f'{SITE["url"]}/'] + [f'{SITE["url"]}/posts/{p["slug"]}.html' for p in posts]
     urls.append(f'{SITE["url"]}/data/compute-finance.html')
@@ -440,6 +527,12 @@ def main():
                 f.write(build_post(p, published, draft=True))
     with open(os.path.join(OUT, "rss.xml"), "w", encoding="utf-8", newline="\n") as f:
         f.write(build_rss(published))
+    g = build_photos()
+    if g:
+        os.makedirs(os.path.join(OUT, "photos"), exist_ok=True)
+        with open(os.path.join(OUT, "photos", "index.html"), "w", encoding="utf-8", newline="\n") as f:
+            f.write(g)
+        print("photos page -> docs/photos/index.html")
     with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8", newline="\n") as f:
         f.write(build_sitemap(published))
     with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8", newline="\n") as f:

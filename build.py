@@ -469,7 +469,7 @@ PHOTO_PAGE_JS = r"""
     if(!imgs.length) return;
     cur=(i+imgs.length)%imgs.length;
     var f=imgs[cur], im=f.querySelector('img');
-    lbImg.src=im.getAttribute('src'); lbImg.alt=im.alt;
+    lbImg.src=im.getAttribute('data-full')||im.getAttribute('src'); lbImg.alt=im.alt;
     capT.textContent=f.dataset.title||''; capD.textContent=f.dataset.desc||'';
     lb.classList.add('on');
   }
@@ -490,10 +490,11 @@ PHOTO_PAGE_JS = r"""
   fetch('photos.json?v='+Date.now()).then(function(r){ return r.json(); }).then(function(list){
     list.sort(function(a,b){ return (+a.id)-(+b.id); });
     gallery.innerHTML=list.map(function(p,i){
-      var fn=(p.url||'').split('/').pop();
+      var full=(p.url||'').split('/').pop();
+      var th=((p.thumb||p.url)||'').split('/').pop();
       var lazy = i<8 ? '' : ' loading="lazy"';
       return '<figure data-title="'+esc(p.title)+'" data-desc="'+esc(p.description)+'">'
-        + '<img src="'+esc(fn)+'" alt="'+esc(p.title)+'"'+lazy+'>'
+        + '<img src="'+esc(th)+'" data-full="'+esc(full)+'" alt="'+esc(p.title)+'"'+lazy+'>'
         + '<figcaption>'+esc(p.title)+(p.location?' · '+esc(p.location):'')+'</figcaption></figure>';
     }).join('');
     bind();

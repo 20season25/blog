@@ -73,25 +73,51 @@ f.addEventListener('change',function(){
   var file=f.files[0]; if(!file)return;
   prev.src=URL.createObjectURL(file); prev.style.display='block';
 });
+function loadImg(file){
+  return new Promise(function(res,rej){
+    var u=URL.createObjectURL(file), im=new Image();
+    im.onload=function(){ URL.revokeObjectURL(u); res(im); };
+    im.onerror=function(e){ URL.revokeObjectURL(u); rej(e); };
+    im.src=u;
+  });
+}
+function compress(im,max,q){
+  var s=Math.min(1,max/Math.max(im.naturalWidth,im.naturalHeight));
+  var w=Math.round(im.naturalWidth*s), h=Math.round(im.naturalHeight*s);
+  var c=document.createElement('canvas'); c.width=w; c.height=h;
+  var x=c.getContext('2d');
+  x.fillStyle='#fff'; x.fillRect(0,0,w,h);
+  x.drawImage(im,0,0,w,h);
+  return new Promise(function(res){ c.toBlob(res,'image/jpeg',q); });
+}
 document.getElementById('f').addEventListener('submit',function(e){
   e.preventDefault();
   var file=f.files[0], msg=document.getElementById('msg'), btn=document.getElementById('btn');
   if(!file){ msg.className='err'; msg.textContent='请选择一张照片'; return; }
-  btn.disabled=true; msg.className=''; msg.textContent='上传中…';
-  var q=new URLSearchParams({
-    title:document.getElementById('title').value,
-    desc:document.getElementById('desc').value,
-    loc:document.getElementById('loc').value
-  });
-  fetch('api?'+q.toString(),{method:'POST',headers:{'Content-Type':file.type||'application/octet-stream'},body:file})
-    .then(function(r){return r.json();})
-    .then(function(d){
-      if(d.ok){ msg.className='ok'; msg.textContent='上传成功（第 '+d.id+' 张）';
-        document.getElementById('f').reset(); prev.style.display='none'; }
-      else { msg.className='err'; msg.textContent='失败：'+(d.error||'未知错误'); }
-    })
-    .catch(function(err){ msg.className='err'; msg.textContent='失败：'+err; })
-    .then(function(){ btn.disabled=false; });
+  btn.disabled=true; msg.className=''; msg.textContent='处理中…';
+  loadImg(file).then(function(im){
+    return Promise.all([compress(im,2000,0.82), compress(im,720,0.72)]);
+  }).then(function(b){
+    var full=b[0], thumb=b[1];
+    msg.textContent='上传中…（'+Math.round(full.size/1024)+'KB）';
+    var q=new URLSearchParams({
+      title:document.getElementById('title').value,
+      desc:document.getElementById('desc').value,
+      loc:document.getElementById('loc').value
+    });
+    return fetch('api?'+q.toString(),{method:'POST',headers:{'Content-Type':'image/jpeg'},body:full})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(!d.ok) throw new Error(d.error||'上传失败');
+        return fetch('api?kind=thumb&id='+d.id,{method:'POST',headers:{'Content-Type':'image/jpeg'},body:thumb})
+          .then(function(){ return d; });
+      });
+  }).then(function(d){
+    msg.className='ok'; msg.textContent='上传成功（第 '+d.id+' 张），刷新作品集即可看到';
+    document.getElementById('f').reset(); prev.style.display='none';
+  }).catch(function(err){
+    msg.className='err'; msg.textContent='失败：'+(err&&err.message?err.message:err);
+  }).then(function(){ btn.disabled=false; });
 });
 </script></body></html>"""
 
@@ -178,6 +204,25 @@ class H(BaseHTTPRequestHandler):
             self._send(415, json.dumps({"ok": False, "error": "只支持 JPG / PNG / WebP"}))
             return
 
+        # 缩略图（前端 canvas 压缩后二次上传）
+        kind = (q.get("kind", [""])[0] or "").strip()
+        if kind == "thumb":
+            tid = (q.get("id", [""])[0] or "").strip()
+            if not tid.isdigit():
+                self._send(400, json.dumps({"ok": False, "error": "缺少 id"}))
+                return
+            tname = f"{tid}_t.jpg"
+            with open(os.path.join(BASE, tname), "wb") as f:
+                f.write(body)
+            os.chmod(os.path.join(BASE, tname), 0o644)
+            items = load_meta()
+            for it in items:
+                if str(it.get("id")) == tid:
+                    it["thumb"] = f"/photos/dongdong/{tname}"
+            save_meta(items)
+            self._send(200, json.dumps({"ok": True, "thumb": tname}))
+            return
+
         pid = next_id(items, BASE)
         fn = f"{pid}{ext}"
         path = os.path.join(BASE, fn)
@@ -188,6 +233,7 @@ class H(BaseHTTPRequestHandler):
         items.append({
             "id": str(pid),
             "url": f"/photos/dongdong/{fn}",
+            "thumb": f"/photos/dongdong/{pid}_t.jpg",
             "title": title or "无题",
             "description": desc,
             "date": time.strftime("%Y年%-m月%-d日"),

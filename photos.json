@@ -5,7 +5,8 @@
     "title": "赶海的傍晚",
     "description": "深圳的海，礁石滩的水洼里藏着夏天的秘密，和朋友一起找小螃蟹的快乐",
     "date": "2026年6月7日",
-    "location": "深圳·海边礁石滩"
+    "location": "深圳·海边礁石滩",
+    "thumb": "/photos/dongdong/1_t.jpg"
   },
   {
     "id": "2",
@@ -13,7 +14,8 @@
     "title": "雨夜街景",
     "description": "突然的暴雨，电动车溅起的水花和车灯的反光，是城市夜晚的动态瞬间",
     "date": "2026年6月7日",
-    "location": "深圳·街头雨夜"
+    "location": "深圳·街头雨夜",
+    "thumb": "/photos/dongdong/2_t.jpg"
   },
   {
     "id": "3",
@@ -21,7 +23,8 @@
     "title": "蓝调时刻",
     "description": "傍晚的城市，写字楼的灯光刚亮起，路灯也加入了这场温柔的仪式",
     "date": "2026年6月7日",
-    "location": "深圳·城市写字楼旁"
+    "location": "深圳·城市写字楼旁",
+    "thumb": "/photos/dongdong/3_t.jpg"
   },
   {
     "id": "4",
@@ -29,7 +32,8 @@
     "title": "夜行者",
     "description": "过马路的小狗，在车灯的逆光里，像一个奔赴夜晚的小英雄",
     "date": "2026年6月7日",
-    "location": "深圳·夜晚路口"
+    "location": "深圳·夜晚路口",
+    "thumb": "/photos/dongdong/4_t.jpg"
   },
   {
     "id": "5",
@@ -37,7 +41,8 @@
     "title": "宿舍的夏天",
     "description": "阳光穿过桉树叶，落在远处的宿舍楼，是被绿意包裹的日常",
     "date": "2026年6月7日",
-    "location": "深圳·校园宿舍区"
+    "location": "深圳·校园宿舍区",
+    "thumb": "/photos/dongdong/5_t.jpg"
   },
   {
     "id": "6",
@@ -45,7 +50,8 @@
     "title": "送花的人",
     "description": "街头遇到的浪漫，电动车上抱着花束的人，带着满手的温柔奔赴某处",
     "date": "2026年6月7日",
-    "location": "深圳·城市街头"
+    "location": "深圳·城市街头",
+    "thumb": "/photos/dongdong/6_t.jpg"
   },
   {
     "id": "7",
@@ -53,7 +59,8 @@
     "title": "公园的小松鼠",
     "description": "恩上湿地公园的草坪，小松鼠一闪而过，只留下一抹灵动的影子",
     "date": "2026年6月7日",
-    "location": "深圳·梧桐山恩上湿地公园"
+    "location": "深圳·梧桐山恩上湿地公园",
+    "thumb": "/photos/dongdong/7_t.jpg"
   },
   {
     "id": "8",
@@ -61,7 +68,8 @@
     "title": "暴雨街头",
     "description": "突如其来的大雨，行人抱着东西在雨里快走，鞋子踩出细碎的水花",
     "date": "2026年6月7日",
-    "location": "深圳·雨天路口"
+    "location": "深圳·雨天路口",
+    "thumb": "/photos/dongdong/8_t.jpg"
   },
   {
     "id": "9",
@@ -69,7 +77,8 @@
     "title": "工业展览馆",
     "description": "深圳市工业展览馆的台阶，黄衣女生和黑衣男士的背影，在建筑前构成了一幅画",
     "date": "2026年6月7日",
-    "location": "深圳·工业展览馆"
+    "location": "深圳·工业展览馆",
+    "thumb": "/photos/dongdong/9_t.jpg"
   },
   {
     "id": "10",
@@ -77,7 +86,8 @@
     "title": "雨里下车",
     "description": "粉色小车里的人，撑着临时的伞，在暴雨里匆匆下车，狼狈又真实的瞬间",
     "date": "2026年6月7日",
-    "location": "深圳·雨天街头"
+    "location": "深圳·雨天街头",
+    "thumb": "/photos/dongdong/10_t.jpg"
   },
   {
     "id": "11",
@@ -85,7 +95,8 @@
     "title": "下雨有彩虹",
     "description": "恩上湿地公园，在梧桐山上，以前和文婷去过一次",
     "date": "2026年6月7日",
-    "location": "深圳梧桐山恩上湿地公园"
+    "location": "深圳梧桐山恩上湿地公园",
+    "thumb": "/photos/dongdong/11_t.jpg"
   },
   {
     "id": "12",
@@ -93,7 +104,8 @@
     "title": "难忘回忆",
     "description": "这次是晴天",
     "date": "2026年6月7日",
-    "location": "深圳梧桐山恩上湿地公园"
+    "location": "深圳梧桐山恩上湿地公园",
+    "thumb": "/photos/dongdong/12_t.jpg"
   },
   {
     "id": "13",
@@ -101,7 +113,8 @@
     "title": "雨里野餐",
     "description": "草坪上独自撑伞的人，野餐垫和捞鱼网还在，雨天也没被打断的松弛",
     "date": "2026年6月7日",
-    "location": "深圳梧桐山恩上湿地公园"
+    "location": "深圳梧桐山恩上湿地公园",
+    "thumb": "/photos/dongdong/13_t.jpg"
   },
   {
     "id": "14",
@@ -109,7 +122,8 @@
     "title": "山边剪影",
     "description": "云雾里的梧桐山，栈道上走过的一家人，背影和山景融成了温柔的画面",
     "date": "2026年6月7日",
-    "location": "深圳梧桐山恩上湿地公园"
+    "location": "深圳梧桐山恩上湿地公园",
+    "thumb": "/photos/dongdong/14_t.jpg"
   },
   {
     "id": "15",
@@ -117,7 +131,8 @@
     "title": "和鹅群的雨天",
     "description": "撑着蓝伞的小女孩，蹲在草坪上和散步的鹅群互动，雨天也藏不住的可爱",
     "date": "2026年6月7日",
-    "location": "深圳梧桐山恩上湿地公园"
+    "location": "深圳梧桐山恩上湿地公园",
+    "thumb": "/photos/dongdong/15_t.jpg"
   },
   {
     "id": "16",
@@ -125,7 +140,8 @@
     "title": "雨中山景",
     "description": "暴雨里的恩上全景，远山被雨雾裹住，草地和步道在雨里晕成了水彩画",
     "date": "2026年6月7日",
-    "location": "深圳梧桐山恩上湿地公园"
+    "location": "深圳梧桐山恩上湿地公园",
+    "thumb": "/photos/dongdong/16_t.jpg"
   },
   {
     "id": "17",
@@ -133,7 +149,8 @@
     "title": "雨中小径",
     "description": "恩上湿地公园的暴雨天，木栈道上撑伞的人，把绿色的草地衬得格外温柔",
     "date": "2026年6月7日",
-    "location": "深圳梧桐山恩上湿地公园"
+    "location": "深圳梧桐山恩上湿地公园",
+    "thumb": "/photos/dongdong/17_t.jpg"
   },
   {
     "id": "18",
@@ -141,6 +158,7 @@
     "title": "礁石滩的午后",
     "description": "晴天的海边，沙滩上的大礁石和歇脚的人，是深圳的松弛感时刻",
     "date": "2026年6月7日",
-    "location": "深圳·西涌沙滩礁石滩"
+    "location": "深圳·西涌沙滩礁石滩",
+    "thumb": "/photos/dongdong/18_t.jpg"
   }
 ]

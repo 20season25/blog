@@ -20,6 +20,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 BASE = "/var/www/home/breath"
 DATA = os.path.join(BASE, "entries.json")
 PHOTOS = os.path.join(BASE, "photos")
+GUEST = "/var/www/home/guestbook/entries.json"
 PORT = 8089
 MAX_BYTES = 15 * 1024 * 1024
 ALLOWED = {b"\xff\xd8\xff": ".jpg", b"\x89PNG\r\n\x1a\n": ".png", b"RIFF": ".webp"}
@@ -134,6 +135,34 @@ def save_data(d):
     os.replace(tmp, DATA)
 
 
+def load_guest():
+    if not os.path.exists(GUEST):
+        return []
+    try:
+        return json.load(open(GUEST, encoding="utf-8"))
+    except Exception:
+        return []
+
+
+def save_guest(items):
+    os.makedirs(os.path.dirname(GUEST), exist_ok=True)
+    tmp = GUEST + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(items, f, ensure_ascii=False, indent=2)
+    os.replace(tmp, GUEST)
+
+
+def length_check(handler, limit):
+    try:
+        n = int(handler.headers.get("Content-Length", "0"))
+    except ValueError:
+        n = 0
+    if n <= 0 or n > limit:
+        handler._send(400, json.dumps({"ok": False, "error": "空请求或超大"}))
+        return False
+    return True
+
+
 class H(BaseHTTPRequestHandler):
     server_version = "breath-post/1.0"
 
@@ -147,6 +176,12 @@ class H(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_GET(self):
+        u = urllib.parse.urlparse(self.path)
+        if u.path.startswith("/api-guest-list"):
+            items = load_guest()
+            self._send(200, json.dumps(sorted(items, key=lambda x: -x.get("id", 0))[-60:],
+                                       ensure_ascii=False))
+            return
         if self.path.startswith("/api"):
             self._send(405, json.dumps({"ok": False, "error": "use POST"}))
             return
@@ -158,6 +193,53 @@ class H(BaseHTTPRequestHandler):
             length = int(self.headers.get("Content-Length", "0"))
         except ValueError:
             length = 0
+        if u.path.startswith("/api-guest-delete"):
+            if length_check(self, 4096) is False:
+                return
+            raw = self.rfile.read(int(self.headers.get("Content-Length", "0")))
+            try:
+                body = json.loads(raw.decode("utf-8"))
+            except Exception:
+                self._send(400, json.dumps({"ok": False, "error": "bad json"}))
+                return
+            gid = body.get("id")
+            items = load_guest()
+            kept = [x for x in items if x.get("id") != gid]
+            save_guest(kept)
+            self._send(200, json.dumps({"ok": True, "removed": len(items) - len(kept)}))
+            return
+
+        if u.path.startswith("/api-guest-add"):
+            if length_check(self, 4096) is False:
+                return
+            raw = self.rfile.read(int(self.headers.get("Content-Length", "0")))
+            try:
+                body = json.loads(raw.decode("utf-8"))
+            except Exception:
+                self._send(400, json.dumps({"ok": False, "error": "bad json"}))
+                return
+            if body.get("website"):                    # 蜜罐：假装成功
+                self._send(200, json.dumps({"ok": True}))
+                return
+            text = (body.get("text") or "").strip()[:200]
+            if not text:
+                self._send(400, json.dumps({"ok": False, "error": "写点什么都好，但得写"}))
+                return
+            items = load_guest()
+            if len(items) >= 500:
+                self._send(429, json.dumps({"ok": False, "error": "留言簿已满，等管理员清理"}))
+                return
+            gid = (max((x.get("id", 0) for x in items), default=0)) + 1
+            items.append({
+                "id": gid,
+                "name": (body.get("name") or "").strip()[:30] or "路人",
+                "text": text,
+                "ts": time.strftime("%Y-%m-%d %H:%M"),
+            })
+            save_guest(items)
+            self._send(200, json.dumps({"ok": True, "id": gid}, ensure_ascii=False))
+            return
+
         if u.path.startswith("/api-photo"):
             q = urllib.parse.parse_qs(u.query)
             date = (q.get("date", [""])[0] or "").strip()

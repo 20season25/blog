@@ -13,6 +13,11 @@
 --code-bg:#23231f;--quote-bg:#1f1e1a}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
+*{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+::-webkit-scrollbar{width:7px;height:7px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--dim)}
 body{margin:0;background:var(--bg);color:var(--ink);
 font:16px/1.95 "Source Han Serif SC","Noto Serif SC","Songti SC",STSong,SimSun,Georgia,serif}
 a{color:inherit}

@@ -1,0 +1,14 @@
+[Unit]
+Description=Breath daily post service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/photo-upload/breath_server.py
+Restart=always
+RestartSec=3
+StandardOutput=append:/var/log/breath-post.log
+StandardError=append:/var/log/breath-post.log
+
+[Install]
+WantedBy=multi-user.target

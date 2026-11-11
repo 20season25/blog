@@ -580,6 +580,15 @@ def main():
         print("photos data -> gallery/photos.json")
     with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8", newline="\n") as f:
         f.write(build_sitemap(published))
+    with open(os.path.join(OUT, "site.json"), "w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps({
+            "generated": datetime.datetime.now().isoformat(timespec="seconds"),
+            "total_words": sum(len(re.sub(r"\s", "", p["body"])) for p in published),
+            "articles": [{"slug": p["slug"], "title": p["title"], "date": p["date"],
+                          "series": p.get("series") or "", "tags": p.get("tags") or [],
+                          "summary": p["summary"],
+                          "words": len(re.sub(r"\s", "", p["body"]))} for p in published],
+        }, ensure_ascii=False, indent=1))
     with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8", newline="\n") as f:
         f.write("User-agent: *\nAllow: /\n\nSitemap: " + SITE["url"] + "/sitemap.xml\n")
     print(f"OK: {len(published)} published, {len(drafts)} drafts -> {OUT}")

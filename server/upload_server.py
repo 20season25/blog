@@ -66,6 +66,43 @@ img.prev{max-width:100%;border-radius:8px;margin-top:.8rem;display:none}
   <button type="submit" id="btn">上传</button>
   <div id="msg"></div>
 </form>
+
+<h1 style="font-size:1rem;margin-top:3rem">已上传 <span id="cnt">…</span> 张</h1>
+<div id="list" style="margin-top:.6rem"></div>
+</div>
+<style>
+.row{display:flex;align-items:center;gap:.6rem;padding:.5rem .6rem;border:1px solid #2c2b27;
+border-radius:8px;margin-bottom:.4rem;font-size:.82rem;background:#1b1b19}
+.row .no{color:#8f8d85;flex:0 0 2.2em}
+.row .ti{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row button{margin:0;width:auto;padding:.25em .8em;font-size:.75rem;background:#2c2b27}
+.row button:hover{background:#e05a4e}
+</style>
+<script>
+function loadList(){
+  fetch('api-list').then(function(r){return r.json();}).then(function(items){
+    document.getElementById('cnt').textContent = items.length;
+    var el = document.getElementById('list');
+    el.innerHTML = items.slice().sort(function(a,b){return (+b.id)-(+a.id);}).map(function(p){
+      return '<div class="row"><span class="no">#'+p.id+'</span>'
+        + '<span class="ti">'+ (p.title||'无题') + (p.location?' · '+p.location:'') +'</span>'
+        + '<button data-id="'+p.id+'">删除</button></div>';
+    }).join('') || '<p style="color:#8f8d85;font-size:.8rem">还没有照片</p>';
+    el.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click', function(){
+        var id = b.dataset.id;
+        if(!confirm('确定删除第 '+id+' 张？不可恢复')) return;
+        b.disabled = true;
+        fetch('api-delete',{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({id:+id})})
+          .then(function(r){return r.json();})
+          .then(function(d){ loadList(); });
+      });
+    });
+  });
+}
+loadList();
+</script>
 </div>
 <script>
 var f=document.getElementById('file'),prev=document.getElementById('prev');
@@ -160,6 +197,10 @@ class H(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_GET(self):
+        u = urllib.parse.urlparse(self.path)
+        if u.path.startswith("/api-list"):
+            self._send(200, json.dumps(load_meta(), ensure_ascii=False))
+            return
         if self.path.startswith("/api"):
             self._send(405, json.dumps({"ok": False, "error": "use POST"}))
             return
@@ -167,6 +208,38 @@ class H(BaseHTTPRequestHandler):
 
     def do_POST(self):
         u = urllib.parse.urlparse(self.path)
+
+        if u.path.startswith("/api-delete"):
+            if length_check(self, 4096) is False:
+                return
+            raw = self.rfile.read(int(self.headers.get("Content-Length", "0")))
+            try:
+                body = json.loads(raw.decode("utf-8"))
+            except Exception:
+                self._send(400, json.dumps({"ok": False, "error": "bad json"}))
+                return
+            pid = str(body.get("id", ""))
+            if not pid.isdigit():
+                self._send(400, json.dumps({"ok": False, "error": "id 必须是数字"}))
+                return
+            items = load_meta()
+            entry = next((x for x in items if str(x.get("id")) == pid), None)
+            if not entry:
+                self._send(404, json.dumps({"ok": False, "error": "没有这张照片"}))
+                return
+            removed = []
+            for field in ("url", "thumb"):
+                fn = os.path.basename(str(entry.get(field, "")))
+                if fn:
+                    fp = os.path.join(BASE, fn)
+                    if os.path.isfile(fp):          # 只删 BASE 下的文件，防路径穿越
+                        os.remove(fp)
+                        removed.append(fn)
+            items = [x for x in items if str(x.get("id")) != pid]
+            save_meta(items)
+            self._send(200, json.dumps({"ok": True, "id": pid, "removed": removed}))
+            return
+
         if not u.path.startswith("/api"):
             self._send(404, json.dumps({"ok": False, "error": "not found"}))
             return
@@ -244,6 +317,17 @@ class H(BaseHTTPRequestHandler):
 
     def log_message(self, fmt, *args):
         print("[%s] %s" % (time.strftime("%H:%M:%S"), fmt % args), flush=True)
+
+
+def length_check(handler, limit):
+    try:
+        n = int(handler.headers.get("Content-Length", "0"))
+    except ValueError:
+        n = 0
+    if n <= 0 or n > limit:
+        handler._send(400, json.dumps({"ok": False, "error": "空请求或超大"}))
+        return False
+    return True
 
 
 if __name__ == "__main__":

@@ -1,7 +1,20 @@
 {
- "generated": "2026-11-12T06:33:33",
- "total_words": 23762,
+ "generated": "2026-11-13T06:33:54",
+ "total_words": 25918,
  "articles": [
+  {
+   "slug": "huang-resigns-nvidia",
+   "title": "黄仁勋辞职：AI 行业的估值模型里，少了一个变量",
+   "date": "2026-11-12",
+   "series": "算力金融",
+   "tags": [
+    "AI行业",
+    "资本市场",
+    "英伟达"
+   ],
+   "summary": "英伟达官宣黄仁勋即时辞任 CEO，CFO 临时接任，原因只字未提。整个 AI 信用循环的最后背书人离开牌桌——从今天起，所有估值模型里\"黄仁勋在\"这个变量要重新校准。",
+   "words": 2156
+  },
   {
    "slug": "yuanbao-search-launch",
    "title": "元宝搜索上线：中国的搜索战争，打到第二阶段了",

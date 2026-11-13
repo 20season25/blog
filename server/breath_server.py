@@ -13,6 +13,7 @@
 """
 import json
 import os
+import threading
 import time
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -152,6 +153,18 @@ def save_guest(items):
     os.replace(tmp, GUEST)
 
 
+_LOCK = threading.Lock()
+
+
+def photo_for(date):
+    """按日期反查磁盘上已存在的照片文件名（解决“先传图后建条目”的孤儿问题）。"""
+    for ext in (".jpg", ".png", ".webp"):
+        fn = date + ext
+        if os.path.exists(os.path.join(PHOTOS, fn)):
+            return fn
+    return None
+
+
 def length_check(handler, limit):
     try:
         n = int(handler.headers.get("Content-Length", "0"))
@@ -263,11 +276,12 @@ class H(BaseHTTPRequestHandler):
             with open(os.path.join(PHOTOS, fn), "wb") as f:
                 f.write(body)
             os.chmod(os.path.join(PHOTOS, fn), 0o644)
-            d = load_data()
-            for e in d["entries"]:
-                if e["date"] == date:
-                    e["photo"] = fn
-            save_data(d)
+            with _LOCK:
+                d = load_data()
+                for e in d["entries"]:
+                    if e["date"] == date:
+                        e["photo"] = fn
+                save_data(d)
             self._send(200, json.dumps({"ok": True, "photo": fn}))
             return
 
@@ -288,23 +302,27 @@ class H(BaseHTTPRequestHandler):
             weather = (body.get("weather") or "").strip()[:60]
             date = (body.get("date") or time.strftime("%Y-%m-%d"))[:10]
 
-            d = load_data()
-            replaced = False
-            for e in d["entries"]:
-                if e["date"] == date:
-                    e["text"] = text
-                    if weather:
-                        e["weather"] = weather
-                    replaced = True
-            if not replaced:
-                d["entries"].append({
-                    "date": date, "text": text,
-                    "weather": weather or None,
-                    "photo": body.get("photo"),
-                })
-            if not d.get("start"):
-                d["start"] = min([e["date"] for e in d["entries"]] + [date])
-            save_data(d)
+            with _LOCK:
+                d = load_data()
+                found_photo = photo_for(date)          # 关键：从磁盘反查当天照片
+                replaced = False
+                for e in d["entries"]:
+                    if e["date"] == date:
+                        e["text"] = text
+                        if weather:
+                            e["weather"] = weather
+                        if found_photo:
+                            e["photo"] = found_photo
+                        replaced = True
+                if not replaced:
+                    d["entries"].append({
+                        "date": date, "text": text,
+                        "weather": weather or None,
+                        "photo": body.get("photo") or found_photo,
+                    })
+                if not d.get("start"):
+                    d["start"] = min([e["date"] for e in d["entries"]] + [date])
+                save_data(d)
             self._send(200, json.dumps({"ok": True, "date": date, "replaced": replaced}))
             return
 

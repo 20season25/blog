@@ -1,7 +1,20 @@
 {
- "generated": "2026-11-13T09:19:51",
- "total_words": 25918,
+ "generated": "2026-11-14T06:32:48",
+ "total_words": 27643,
  "articles": [
+  {
+   "slug": "anthropic-ipo-oversubscribed",
+   "title": "数倍超额认购：史上最大 IPO 不打折了",
+   "date": "2026-11-14",
+   "series": "算力金融",
+   "tags": [
+    "AI行业",
+    "资本市场",
+    "Anthropic"
+   ],
+   "summary": "路演结果反转了唱空剧本——估值锚被砍了 35%，订单却是数倍超额。价格和需求原来是两个变量；11 月 19 日，AI 行业的\"官方汇率\"即将揭晓。",
+   "words": 1725
+  },
   {
    "slug": "huang-resigns-nvidia",
    "title": "黄仁勋辞职：AI 行业的估值模型里，少了一个变量",

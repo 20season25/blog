@@ -148,7 +148,7 @@ border:1px solid var(--line);border-radius:10px;padding:.9rem .9rem .5rem;box-sh
 </div>
 <div class="share">
 <span class="s-label">分享</span>
-<button type="button" class="s-btn copybtn" onclick="copyLink(this)">复制链接</button>
+<button type="button" class="s-btn copybtn" onclick="copyShare(this)" title="复制：标题 + 摘要 + 链接">复制分享文案</button>
 <button type="button" class="s-btn sharebtn" onclick="sysShare(this)" hidden>系统分享</button>
 <details class="s-qr"><summary class="s-btn">微信扫码</summary>
 <div class="qrbox"><div data-qr></div><div class="qr-tip">微信扫一扫，手机上阅读</div></div>
@@ -158,13 +158,15 @@ border:1px solid var(--line);border-radius:10px;padding:.9rem .9rem .5rem;box-sh
 </div>
 <script src="../assets/qrcode.min.js"></script>
 <script>
-function copyLink(btn){
-  var t = location.href;
+var SHARE_TITLE = "元宝搜索上线：中国的搜索战争，打到第二阶段了";
+var SHARE_SUM = "腾讯在 28 岁生日当天悄悄上线独立 AI 搜索 so.qq.com——入口战争进入第二阶段，而\"广告不伪装成答案\"这句口号，暴露了搜索引擎商业模式的第一次公开分裂。";
+function copyShare(btn){
+  var text = SHARE_TITLE + '\n\n' + SHARE_SUM + '\n\n' + location.href;
   var done = function(){ if(btn){ var o = btn.textContent; btn.textContent = '已复制 ✓';
     btn.classList.add('copydone'); setTimeout(function(){ btn.textContent = o;
     btn.classList.remove('copydone'); }, 1600); } };
-  if (navigator.clipboard) { navigator.clipboard.writeText(t).then(done, function(){ prompt('复制链接：', t); }); }
-  else { prompt('复制链接：', t); }
+  if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, function(){ prompt('复制分享文案：', text); }); }
+  else { prompt('复制分享文案：', text); }
 }
 function sysShare(btn){
   if (!navigator.share) return;

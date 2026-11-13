@@ -330,9 +330,11 @@ def build_post(p, posts, draft=False):
     series_nav = f'<div class="series-nav">{prev_n}{next_n}</div>' if (prev_n or next_n) else ""
     enc_url = urllib.parse.quote(f'{SITE["url"]}/posts/{p["slug"]}.html', safe="")
     enc_t = urllib.parse.quote(p["title"], safe="")
+    js_title = json.dumps(p["title"], ensure_ascii=False)
+    js_sum = json.dumps(p["summary"], ensure_ascii=False)
     share = f"""<div class="share">
 <span class="s-label">分享</span>
-<button type="button" class="s-btn copybtn" onclick="copyLink(this)">复制链接</button>
+<button type="button" class="s-btn copybtn" onclick="copyShare(this)" title="复制：标题 + 摘要 + 链接">复制分享文案</button>
 <button type="button" class="s-btn sharebtn" onclick="sysShare(this)" hidden>系统分享</button>
 <details class="s-qr"><summary class="s-btn">微信扫码</summary>
 <div class="qrbox"><div data-qr></div><div class="qr-tip">微信扫一扫，手机上阅读</div></div>
@@ -342,13 +344,15 @@ def build_post(p, posts, draft=False):
 </div>
 <script src="../assets/qrcode.min.js"></script>
 <script>
-function copyLink(btn){{
-  var t = location.href;
+var SHARE_TITLE = {js_title};
+var SHARE_SUM = {js_sum};
+function copyShare(btn){{
+  var text = SHARE_TITLE + '\\n\\n' + SHARE_SUM + '\\n\\n' + location.href;
   var done = function(){{ if(btn){{ var o = btn.textContent; btn.textContent = '已复制 ✓';
     btn.classList.add('copydone'); setTimeout(function(){{ btn.textContent = o;
     btn.classList.remove('copydone'); }}, 1600); }} }};
-  if (navigator.clipboard) {{ navigator.clipboard.writeText(t).then(done, function(){{ prompt('复制链接：', t); }}); }}
-  else {{ prompt('复制链接：', t); }}
+  if (navigator.clipboard) {{ navigator.clipboard.writeText(text).then(done, function(){{ prompt('复制分享文案：', text); }}); }}
+  else {{ prompt('复制分享文案：', text); }}
 }}
 function sysShare(btn){{
   if (!navigator.share) return;
